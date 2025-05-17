@@ -49,8 +49,7 @@ class UserController extends Controller
 
         // Log the user in
 
-        // Redirect to the dashboard or any other page
-        return redirect()->back()->with('message', 'Registration successful! Please check your email for verification.');
+        return redirect('/register/')->with('message', 'Registration successful! Please check your email for verification.');
 
     }
 }

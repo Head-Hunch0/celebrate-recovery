@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             // personal information
-            $table->foreignId('userID')->constrained('users')->onDelete('cascade');
+            // $table->foreignId('userID')->constrained('users')->onDelete('cascade');
 
             // ticket information
             $table->string('ticket_type');
