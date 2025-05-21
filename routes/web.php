@@ -15,8 +15,8 @@ Route::post('/registeruser', [UserController::class, 'register'])->name('registe
 Route::get('/login', [UserController::class, 'login'])->name('login');
 
 
-// Route::prefix('/admin')->group(function () {
-    Route::middleware('auth')->prefix('/admin')->group(function () {
+Route::prefix('/admin')->group(function () {
+    // Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::get('/tickets', [TicketsController::class, 'ticketsscan'])->name('admin.tickets');
     Route::post('/tickets/verify', [TicketsController::class, 'verify']);
     Route::post('/purchase', [TicketsController::class, 'payment'])->name('payment');

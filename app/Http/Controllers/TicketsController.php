@@ -135,7 +135,7 @@ class TicketsController extends Controller
         ]);
 
         Log::info('Ticket created:', $ticket->toArray());
-        dd($ticket);
+        // dd($ticket);
         // Redirect to a success page or return a response
         return redirect()->route('checkout')->with('message', 'Payment successful!');
 
