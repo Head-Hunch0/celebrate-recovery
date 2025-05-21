@@ -11,23 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_registrations', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('full_name');
+            $table->uuid('uuid')->unique();
             $table->string('email')->unique();
             $table->string('gender')->nullable();
             $table->string('phone_number');
             $table->string('country')->nullable();
             $table->string('county')->nullable();
-            $table->boolean('on_whatsapp')->default(false);
-            $table->string('whatsapp_number')->nullable();
-            $table->integer('age')->nullable();
+            $table->string('on_whatsapp')->default(false);
+            $table->string('age')->nullable();
             $table->string('church')->nullable();
-            $table->boolean('in_cr_group')->default(false);
+            $table->string('in_cr_group')->default(false);
             $table->string('cr_group_name')->nullable();
-            $table->boolean('interested_in_starting_cr_group')->default(false);
-            $table->boolean('willing_to_sponsor')->default(false);
-            $table->string('password');
+            $table->string('diet')->nullable();
+            $table->string('interested_in_starting_cr_group')->default(false);
+            $table->string('willing_to_sponsor')->default(false);
+            $table->string('password')->nullable();
             $table->timestamps();
         });
 

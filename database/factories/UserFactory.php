@@ -24,17 +24,24 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'firstname' => $this->faker->firstName(),
-            'lastname' => $this->faker->lastName(),
-            'phone' => $this->faker->phoneNumber(),
-            'address' => $this->faker->streetAddress(),
-            'city' => $this->faker->city(),
-            'country' => $this->faker->country(),
-            'postal_code' => $this->faker->postcode(),
+            'full_name' => $this->faker->name(),
+            'uuid' => Str::uuid()->toString(),
             'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => bcrypt('password'), // or use Hash::make()
-            'remember_token' => Str::random(10),
+            'gender' => $this->faker->randomElement(['male', 'female', 'other']),
+            'phone_number' => $this->faker->phoneNumber(),
+            'country' => $this->faker->country(),
+            'county' => $this->faker->state(),
+            'on_whatsapp' => $this->faker->boolean(),
+            'age' => $this->faker->numberBetween(18, 60),
+            'church' => $this->faker->company(),
+            'in_cr_group' => $this->faker->boolean(),
+            'cr_group_name' => $this->faker->word(),
+            'diet' => $this->faker->word(),
+            'interested_in_starting_cr_group' => $this->faker->boolean(),
+            'willing_to_sponsor' => $this->faker->boolean(),
+            'password' => Hash::make('password'), // or bcrypt('password')
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 

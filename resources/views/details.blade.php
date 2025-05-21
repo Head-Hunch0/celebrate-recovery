@@ -93,20 +93,20 @@
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">Full Name
                                 
                             </label>
-                            <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John Doe" >
+                            <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="John Doe" required >
                         </div>
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">Email address
                                 
                             </label>
-                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="johndoe@email.com" >
+                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="johndoe@email.com" required >
                         </div>
                         <div>
                             
                             <label for="sex" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">Gender
                                 
                             </label>
-                            <select id="sex" name="sex" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select id="sex" name="sex" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                                 <option disabled selected>Choose Gender</option>
                                 <option value="male" >Male</option>
                                 <option value="female" >Female</option>
@@ -115,26 +115,20 @@
                         </div>  
                         
                         <div>
-                            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">Phone Number
-                                
-                            </label>
-                            <input type="text" name="phone" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="123-456-789" >
-                        </div>
-                        <div>
                             <label for="country" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">Country
                             </label>
-                            <input type="text" name="country" id="country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="Jamaica" >
+                            <input type="text" name="country" id="country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="Jamaica" required>
                         </div>
                         <div>
                             <label for="county" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">County
                             </label>
-                            <input type="text" name="county" id="county" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="Uasin Gishu" >
+                            <input type="text" name="county" id="county" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="Uasin Gishu" required>
                         </div>
                         <div>
                             <label for="wa" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">Are you on WhatsApp?
                                 
                             </label>
-                                <select id="wa"  name="wa" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <select id="wa"  name="wa" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                                     <option disabled selected>Choose One</option>
                                     <option value="Yes" >Yes</option>
                                     <option value="No" >No</option>
@@ -145,14 +139,14 @@
                             <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">Phone Number
                                 
                             </label>
-                            <input type="text" name="phone" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="WhatsApp Preferred, please include Country Code" >
+                            <input type="text" name="phone" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="WhatsApp Preferred, please include Country Code" required>
                         </div>
 
                         <div>
                             <label for="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">Age
                                 
                             </label>
-                                <select id="age"  name="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <select id="age"  name="age" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                                     <option disabled selected>Age</option>
                                     <option value="18-24" >18 - 24</option>
                                     <option value="25-34" >25 - 34</option>
@@ -164,14 +158,14 @@
                         <div>
                             <label for="church" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">Church / Organization
                             </label>
-                            <input type="text" name="church" id="church" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="Parklands Baptist" >
+                            <input type="text" name="church" id="church" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="Parklands Baptist" required>
                         </div>
 
                         <div>
-                            <label for="cr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">Are you currently part of a CR group?
+                            <label for="cr" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">Are you currently part of a Celebrate Recovery group?
                                 
                             </label>
-                                <select id="cr"  name="cr" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <select id="cr"  name="cr" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                                     <option disabled selected>Choose One</option>
                                     <option value="Yes" >Yes</option>
                                     <option value="No" >No</option>
@@ -179,15 +173,20 @@
                         </div>
                         
                         <div>
-                            <label for="crgroup" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">If so, what's the name of your CR group?
+                            <label for="crgroup" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">If so, what's the name of your Celebrate Recovery group?
                             </label>
-                            <input type="text" name="crgroup" id="crgroup" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="Country" >
+                            <input type="text" name="crgroup" id="crgroup" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="PBC" >
                         </div>
 
+                        <div>
+                            <label for="diet" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">Do you have any special dietary needs or accommodations that we should be aware of? 
+                            </label>
+                            <input type="text" name="diet" id="diet" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="Do you have any special dietary needs or accommodations that we should be aware of? " >
+                        </div>
                         
 
                         <div>
-                            <label for="crstart" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">Are you interested in starting a CR group in your church/community
+                            <label for="crstart" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">Are you interested in starting a Celebrate Recovery group in your Church, Organization, School or University?
                                 
                             </label>
                                 <select id="crstart"  name="crstart" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">

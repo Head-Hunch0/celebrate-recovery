@@ -8,11 +8,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::post('/registeruser', [UserController::class, 'register'])->name('register.user');
+Route::get('/ticket', [TicketsController::class, 'ticket'])->name('ticket');
 Route::get('/register', [TicketsController::class, 'show'])->name('register');
+Route::get('/checkout', [TicketsController::class, 'checkout'])->name('checkout');
+Route::post('/registeruser', [UserController::class, 'register'])->name('register.user');
+Route::get('/login', [UserController::class, 'login'])->name('login');
 
-Route::prefix('/admin')->group(function () {
-// Route::middleware('auth')->prefix('/admin')->group(function () {
+
+// Route::prefix('/admin')->group(function () {
+    Route::middleware('auth')->prefix('/admin')->group(function () {
+    Route::get('/tickets', [TicketsController::class, 'ticketsscan'])->name('admin.tickets');
+    Route::post('/tickets/verify', [TicketsController::class, 'verify']);
+    Route::post('/purchase', [TicketsController::class, 'payment'])->name('payment');
     Route::get('/', [TicketsController::class, 'index'])->name('admin.index');
     Route::get('/registered-tickets', [TicketsController::class, 'registered'])->name('admin.registered-tickets');
     Route::get('/confirmed-tickets', [TicketsController::class, 'confirmed'])->name('admin.confirmed-tickets');
