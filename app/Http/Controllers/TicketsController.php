@@ -20,6 +20,18 @@ class TicketsController extends Controller
     {
         return view('details');
     }
+    public function sponsor()
+    {
+        return view('sponsor');
+    }
+    public function thankyou()
+    {
+        return view('thankyou');
+    }
+    public function sponsorstore()
+    {
+        return view('thankyou');
+    }
 
     public function checkout(){
         return view('checkout');
@@ -133,19 +145,23 @@ class TicketsController extends Controller
             'purchased_at' => Carbon::now(),
             'notes' => $validated['notes'] ?? null,
         ]);
+        $ticket = $ticket->ticket_number;
 
         Log::info('Ticket created:', $ticket->toArray());
         // dd($ticket);
         // Redirect to a success page or return a response
-        return redirect()->route('checkout')->with('message', 'Payment successful!');
+        return view('checkout', compact('ticket'))->with('message', 'Payment successful!');
+        // return redirect()->route('checkout')->with('message', 'Payment successful!');
 
     }
 
     // demo ticket
-    public function ticket()
+    public function ticket(Request $request)
     {
         // Generate a unique ticket number
+        // $ticketNumber = $request->input('ticket_number');
         $ticketNumber = 'TKT-6828E6ED0193E';
+
         $ticket = Tickets::where('ticket_number', $ticketNumber)->first();
 
         if (!$ticket) {

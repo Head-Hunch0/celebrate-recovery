@@ -75,12 +75,15 @@
     <img class="px-16 py-5 mx-auto" src="{{asset('images/qrcode.png')}}" alt="" style="width: 600px; ">
 
 
-<h1 class="mb-4 py-6 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Register</h1>
+<h1 class="mb-4 py-6 text-2xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">Register For Conference</h1>
     
 <div class="flex items-center text-center justify-center  px-16 pt-10">
 <!-- Modal toggle -->
 <a href="/register" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block flex m-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
   Register Now
+</a>
+<a href="/sponsor" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block flex m-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+  Sponsor a Participant
 </a>
 
 </div>

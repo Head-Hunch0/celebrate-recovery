@@ -206,12 +206,15 @@
                             </label>
                                 <select id="sponsor"  name="sponsor" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     <option value="no" disabled selected>Choose One</option>
-                                    <option value="1" >1</option>
-                                    <option value="2" >2</option>
-                                    <option value="3" >3</option>
-                                    <option value="4" >4</option>
-                                    <option value="5" >5</option>
+                                    <option value="Yes" >Yes</option>
+                                    <option value="No" >No</option>
                                 </select>
+                        </div>
+
+                        <div id="num-section" class="hidden">
+                            <label for="num" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white flex">How many people would you like to sponsor? 
+                            </label>
+                            <input type="number" name="num" id="num" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="How many people would you like to sponsor" >
                         </div>
                 
                         
@@ -229,5 +232,16 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+
+    <script>
+        const sponsorSelect = document.getElementById('sponsor');
+        const numSection = document.getElementById('num-section');
+    
+    
+        sponsorSelect.addEventListener('change', function () {
+            numSection.classList.toggle('hidden', this.value === 'Yes' ? false : true);
+        });
+    </script>
+    
 </body>
 </html>

@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('interested_in_starting_cr_group')->default(false);
             $table->string('willing_to_sponsor')->default(false);
             $table->string('password')->nullable();
+            $table->integer('passwordchanged')->nullable();
             $table->timestamps();
         });
 

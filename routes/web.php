@@ -10,12 +10,18 @@ Route::get('/', function () {
 });
 Route::get('/ticket', [TicketsController::class, 'ticket'])->name('ticket');
 Route::get('/register', [TicketsController::class, 'show'])->name('register');
+Route::get('/sponsor', [TicketsController::class, 'sponsor'])->name('sponsor');
+Route::get('/thankyou', [TicketsController::class, 'thankyou'])->name('thankyou');
+Route::post('/sponsorstore', [TicketsController::class, 'sponsorstore'])->name('sponsorships.store');
 Route::get('/checkout', [TicketsController::class, 'checkout'])->name('checkout');
 Route::post('/registeruser', [UserController::class, 'register'])->name('register.user');
 Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::post('/signin', [UserController::class, 'signin'])->name('signin');
 
 
 Route::prefix('/admin')->group(function () {
+    Route::get('/passconfirm', [UserController::class, 'passconfirm'])->name('passconfirm');
+    Route::post('/passupdate', [UserController::class, 'passupdate'])->name('passupdate');
     // Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::get('/tickets', [TicketsController::class, 'ticketsscan'])->name('admin.tickets');
     Route::post('/tickets/verify', [TicketsController::class, 'verify']);

@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
+// use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class UserController extends Controller
 {
@@ -30,6 +35,7 @@ class UserController extends Controller
                 'diet' => 'nullable|string|max:255',
                 'crstart' => 'nullable|string',
                 'sponsor' => 'string',
+                'num' => 'nullable|string|max:20',
             ]);
             Log::info('Validated data:', $validated);
         } catch (\Illuminate\Validation\ValidationException $e) {
@@ -41,7 +47,7 @@ class UserController extends Controller
         // Create a new user
         $user = User::create([
             'full_name' => $validated['name'],
-            'uuid' => Str::uuid()->toString(),
+            'uuid' => Str::random(10),
             'email' => $validated['email'],
             'gender' => $validated['sex'] ?? null,
             'phone_number' => $validated['phone'],
@@ -54,7 +60,7 @@ class UserController extends Controller
             'cr_group_name' => $validated['crgroup'] ?? null,
             'diet' => $validated['diet'] ?? null,
             'interested_in_starting_cr_group' => $validated['crstart'] ?? false,
-            'willing_to_sponsor' => $validated['sponsor'],
+            'willing_to_sponsor' => $validated['num'] ?? false,
         ]);
 
         Log::info('User created', $user->toArray());
@@ -73,5 +79,74 @@ class UserController extends Controller
 
     public function login(){
         return view('login');
+    }
+
+    public function signin(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        // Add additional validation if needed
+        $validator = Validator::make($credentials, [
+            'email' => 'required|email',
+            'password' => 'required|string|min:8',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        // Attempt login
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            $user = Auth::user();
+
+            // Do additional checks if needed
+            if (!$user->passwordchanged) {
+                return view('admin.passconfirm', ['user' => $user->email])
+                    ->with('message', 'You need to change your password before proceeding.');
+            }
+
+            return redirect()->route('admin.index')->with('success', 'Login successful');
+        }
+
+        // Authentication failed
+        return back()->withInput()->with('error', 'Invalid credentials');
+    }
+
+    public function passconfirm(Request $request)
+    {
+        return view('admin.passconfirm');
+    }
+
+
+    public function passupdate(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'current_password' => ['required', 'string'],
+            'password' => ['required', 'confirmed', Password::min(8)
+                ->letters()
+                ->mixedCase()
+                ->numbers()
+                ->symbols()
+                ->uncompromised()],
+        ]);
+
+        $user = User::where('email', $request->user)->first();
+
+        // Verify current password
+        if (!Hash::check($request->current_password, $user->password)) {
+            throw ValidationException::withMessages([
+                'current_password' => 'The provided password does not match our records.'
+            ]);
+        }
+
+        // Update user fields directly and save
+        $user->password = Hash::make($request->password);
+        $user->passwordchanged = 1; // Mark password as changed
+        $user->save();
+
+        return redirect()->route('admin.index')
+            ->with('success', 'Password updated successfully!');
     }
 }
