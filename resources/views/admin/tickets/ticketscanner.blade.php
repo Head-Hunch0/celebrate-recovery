@@ -172,7 +172,7 @@
         verificationResult.classList.add('hidden');
         
         // Call API to verify - using ticketData.ticketNumber as the actual number
-        const response = await fetch('https://2caa-102-0-6-211.ngrok-free.app/admin/tickets/verify', {
+        const response = await fetch('https://celebraterecoverykenya.org/admin/tickets/verify', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

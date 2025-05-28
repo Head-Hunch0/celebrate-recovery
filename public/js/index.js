@@ -170,4 +170,53 @@ if (document.getElementById("bar-chart") && typeof ApexCharts !== "undefined") {
     const chart = new ApexCharts(document.getElementById("bar-chart"), options);
     chart.render();
 }
-  
+
+
+
+// donwload users csv 
+// function downloadTableAsCSV(tableId, filename = "registrations.csv") {
+//     const table = document.getElementById(tableId);
+//     const rows = Array.from(table.querySelectorAll("tr"));
+//     const csv = [];
+
+//     rows.forEach((row) => {
+//         const cells = Array.from(row.querySelectorAll("th, td")).map((cell) => {
+//             return `"${cell.textContent.trim().replace(/"/g, '""')}"`;
+//         });
+//         csv.push(cells.join(","));
+//     });
+
+//     const csvString = csv.join("\n");
+//     const blob = new Blob([csvString], { type: "text/csv;charset=utf-8;" });
+//     const link = document.createElement("a");
+
+//     link.setAttribute("href", URL.createObjectURL(blob));
+//     link.setAttribute("download", filename);
+//     link.style.display = "none";
+//     document.body.appendChild(link);
+//     link.click();
+//     document.body.removeChild(link);
+// }
+
+function downloadTableAsCSV(filename = "tickets.csv") {
+    const table = document.getElementById("registrationsTable");
+    const rows = Array.from(table.querySelectorAll("tr"));
+    const csv = [];
+
+    rows.forEach((row, rowIndex) => {
+        const cells = Array.from(row.querySelectorAll("th, td"))
+            .filter((cell, idx) => idx < 4) // Only include first 4 columns (UUID, Name, Phone, Created At)
+            .map((cell) => `"${cell.textContent.trim().replace(/"/g, '""')}"`);
+        csv.push(cells.join(","));
+    });
+
+    const csvString = csv.join("\n");
+    const blob = new Blob([csvString], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    link.setAttribute("href", URL.createObjectURL(blob));
+    link.setAttribute("download", filename);
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}

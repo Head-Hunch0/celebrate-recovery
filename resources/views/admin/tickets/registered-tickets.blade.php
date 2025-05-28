@@ -18,7 +18,7 @@
         
 
 <div class="relative border border-gray-500 py-8 overflow-x-auto overflow-y-auto shadow-xl rounded-lg">
-    <div class="p-8 bg-white dark:bg-gray-900">
+    <div class="p-8 bg-white dark:bg-gray-900 flex justify-between items-center">
         <label for="table-search" class="sr-only">Search</label>
         <div class="relative mt-1 ">
             <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -28,8 +28,12 @@
             </div>
             <input type="text" id="table-search" class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search tickets by name, email, or number">
         </div>
+
+        <button onclick="downloadTableAsCSV('registrationsTable')" class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Download CSV
+        </button>
     </div>
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <table id="registrationsTable" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
@@ -55,17 +59,18 @@
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
 
                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                    {{$ticket['ticket_number']}}
+                    {{$ticket['uuid']}}
                 </td>
                 <td class="px-6 py-4">
-                    {{$ticket['name']}}
+                    {{$ticket['full_name']}}
                 </td>
                 <td class="px-6 py-4">
-                    {{$ticket['phone']}}
+                    {{$ticket['phone_number']}}
                 </td>
 
                 <td class="px-6 py-4">
-                    {{$ticket['created_at']}}
+                    {{-- {{$ticket['created_at']}} --}}
+                    {{ \Carbon\Carbon::parse($ticket['created_at'])->format('Y-m-d H:i:s') }}
                 </td>
 
                 <td class="px-6 py-4">

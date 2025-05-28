@@ -8,16 +8,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/ticket', [TicketsController::class, 'ticket'])->name('ticket');
+Route::get('/ticket/{id}', [TicketsController::class, 'ticket'])->name('ticket');
 Route::get('/register', [TicketsController::class, 'show'])->name('register');
 Route::get('/sponsor', [TicketsController::class, 'sponsor'])->name('sponsor');
 Route::get('/thankyou', [TicketsController::class, 'thankyou'])->name('thankyou');
 Route::post('/sponsorstore', [TicketsController::class, 'sponsorstore'])->name('sponsorships.store');
 Route::get('/checkout', [TicketsController::class, 'checkout'])->name('checkout');
 Route::post('/registeruser', [UserController::class, 'register'])->name('register.user');
+Route::post('/registersponsor', [UserController::class, 'registersponsor'])->name('register.sponsor');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/signin', [UserController::class, 'signin'])->name('signin');
+Route::get('/email', [UserController::class, 'email'])->name('email');
 
+Route::post('/purchase', [TicketsController::class, 'payment'])->name('payment');
+Route::post('/purchase/sponsor', [TicketsController::class, 'paymentsponsor'])->name('payment.sponsor');
 
 Route::prefix('/admin')->group(function () {
     Route::get('/passconfirm', [UserController::class, 'passconfirm'])->name('passconfirm');
@@ -25,7 +29,6 @@ Route::prefix('/admin')->group(function () {
     // Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::get('/tickets', [TicketsController::class, 'ticketsscan'])->name('admin.tickets');
     Route::post('/tickets/verify', [TicketsController::class, 'verify']);
-    Route::post('/purchase', [TicketsController::class, 'payment'])->name('payment');
     Route::get('/', [TicketsController::class, 'index'])->name('admin.index');
     Route::get('/registered-tickets', [TicketsController::class, 'registered'])->name('admin.registered-tickets');
     Route::get('/confirmed-tickets', [TicketsController::class, 'confirmed'])->name('admin.confirmed-tickets');

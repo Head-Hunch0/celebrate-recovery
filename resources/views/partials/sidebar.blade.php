@@ -22,6 +22,9 @@
                </button>
                <ul id="dropdown-pages" class="{{ Request::is('admin/registered-tickets', 'admin/confirmed-tickets', 'admin/sponsoring-tickets', 'admin/sponsored-tickets') ? '' : 'hidden' }} py-2 space-y-2">
                    <li>
+                       <a href="/admin/tickets" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{Request::is('admin/tickets') ? 'bg-gray-300' : ''}}">Scan</a>
+                   </li>
+                   <li>
                        <a href="/admin/registered-tickets" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{Request::is('admin/registered-tickets') ? 'bg-gray-300' : ''}}">Registered</a>
                    </li>
                    <li>

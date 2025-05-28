@@ -44,15 +44,19 @@ class TicketsController extends Controller
     public function registered()
     {
         //
+        $tickets = [];
         // Fetch all registered tickets from the database
-        $tickets = Tickets::where('status', 'pending')->get();
+        // $tickets = Tickets::where('status', 'pending')->get(); for tickets
+        $tickets = User::get();
 
         // add the name, email, and phone of the user who registered the ticket
-        foreach ($tickets as $key){
-            $key['name'] = User::where('id', $key->userID)->first()->firstname . ' ' . User::where('id', $key->userID)->first()->lastname;
-            $key['email'] = User::where('id', $key->userID)->first()->email;
-            $key['phone'] = User::where('id', $key->userID)->first()->phone;
-        }
+        // foreach ($tickets as $key){
+        //     $key['name'] = User::where('id', $key->userID)->first()->firstname . ' ' . User::where('id', $key->userID)->first()->lastname;
+        //     $key['email'] = User::where('id', $key->userID)->first()->email;
+        //     $key['phone'] = User::where('id', $key->userID)->first()->phone;
+        // }
+
+        // dd($tickets->toArray());
 
         // Return the view with the tickets data
         return view('admin.tickets.registered-tickets', compact('tickets'));
@@ -100,7 +104,8 @@ class TicketsController extends Controller
         Log::info('Payment request data:', $request->all());
         // Validate the request data
         $validated = $request->validate([
-            'confirmation' => 'required|regex:/^[A-Z0-9]{10}$/|size:10',
+            'confirmation' => 'required',
+            // 'confirmation' => 'required|regex:/^[A-Z0-9]{10}$/|size:10',
         ]);
 
 
@@ -147,22 +152,88 @@ class TicketsController extends Controller
         ]);
         $ticket = $ticket->ticket_number;
 
-        Log::info('Ticket created:', $ticket->toArray());
+        // Log::info('Ticket created:', $ticket->toArray());
         // dd($ticket);
         // Redirect to a success page or return a response
-        return view('checkout', compact('ticket'))->with('message', 'Payment successful!');
-        // return redirect()->route('checkout')->with('message', 'Payment successful!');
+        // return view('ticket', compact('ticket'))->with('message', 'Payment successful!');
+        // return redirect()->route('ticket')->with('message', 'Payment successful!')->with(['ticket' => $ticket]);
+        return redirect()->route('ticket', ['id' => $ticket])
+            ->with('message', 'Payment successful!')
+            ->with(['ticket' => $ticket]);
+    }
 
+    public function paymentsponsor(Request $request)
+    {
+        Log::info('Payment request data:', $request->all());
+        // Validate the request data
+        $validated = $request->validate([
+            'confirmation' => 'required',
+            // 'confirmation' => 'required|regex:/^[A-Z0-9]{10}$/|size:10',
+        ]);
+
+
+        Log::info('Validated data:', $validated);
+        // Process the payment here
+        // ...
+
+        $user = User::where('uuid', $request->uuid)->firstOrFail();
+        if ($user->willing_to_sponsor !== 0) {
+            $validated['ticket_type'] = 'sponsored';
+            $validated['price'] = 1000;
+        }
+        Log::info('User data:', $user->toArray());
+        $ticket = Tickets::create([
+            'userID' => $validated['userID'] ?? null,
+            'ticket_type' => $validated['ticket_type'],
+            'price' => $validated['price'],
+            'quantity' => $validated['quantity'] ?? 1,
+            'ticket_number' => 'CR@25-' . strtoupper(uniqid()),
+
+            'status' => 'confirmed',
+            'payment_method' => 'mpesa', // Assuming payment method is mpesa for this example
+            // 'payment_method' => $validated['payment_method'],
+            'payment_status' => 'completed',
+            'payment_reference' => $validated['payment_reference'] ?? null,
+            'payment_amount' => $validated['price'],
+            'currency' => 'KES',
+            'payment_date' => Carbon::now(),
+
+            'mpesa_receipt_number' => $validated['confirmation'] ?? null,
+            'mpesa_phone_number' => $user->phone_number ?? null,
+            'mpesa_transaction_date' => Carbon::now(),
+
+            'paypal_transaction_id' => $validated['paypal_transaction_id'] ?? null,
+            'paypal_payer_id' => $validated['paypal_payer_id'] ?? null,
+            'paypal_payer_email' => $validated['paypal_payer_email'] ?? null,
+
+            'card_last_four' => $validated['card_last_four'] ?? null,
+            'card_brand' => $validated['card_brand'] ?? null,
+            'card_expiry' => $validated['card_expiry'] ?? null,
+
+            'purchased_at' => Carbon::now(),
+            'notes' => $validated['notes'] ?? null,
+        ]);
+        $ticket = $ticket->ticket_number;
+
+        // Log::info('Ticket created:', $ticket->toArray());
+        // dd($ticket);
+        // Redirect to a success page or return a response
+        return view('thankyou');
+        // return redirect()->route('ticket')->with('message', 'Payment successful!')->with(['ticket' => $ticket]);
+        // return redirect()->route('ticket', ['id' => $ticket])
+        //     ->with('message', 'Payment successful!')
+        //     ->with(['ticket' => $ticket]);
     }
 
     // demo ticket
-    public function ticket(Request $request)
+    public function ticket($id)
     {
+        Log::info($id);
         // Generate a unique ticket number
-        // $ticketNumber = $request->input('ticket_number');
-        $ticketNumber = 'TKT-6828E6ED0193E';
+        $ticketNumber = $id;
+        // $ticketNumber = 'TKT-6828E6ED0193E';
 
-        $ticket = Tickets::where('ticket_number', $ticketNumber)->first();
+        $ticket = Tickets::where('ticket_number', $id)->first();
 
         if (!$ticket) {
             // Return a view with error message

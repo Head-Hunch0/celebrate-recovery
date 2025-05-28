@@ -60,7 +60,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-12">
+    <main class="container mx-auto px-4 py-12 mb-12">
         <div class="max-w-4xl mx-auto">
             <div class="flex flex-col md:flex-row gap-8">
                 <!-- Sponsorship Benefits -->
@@ -134,28 +134,27 @@
                         <p class="text-gray-600 mt-2">Your sponsorship helps bring Christ's healing to broken lives</p>
                     </div>
                     
-                    <form method="POST" action="{{ route('sponsorships.store') }}" class="space-y-6">
+                    <form method="POST" action="{{ route('register.sponsor') }}" class="space-y-6">
                         @csrf
-
                         <!-- Personal Information -->
                         <div class="space-y-4">
                             <h3 class="text-lg font-semibold text-dark-orange border-b border-orange-200 pb-2">Your Information</h3>
                             
                             <div>
                                 <label for="sponsor_name" class="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
-                                <input type="text" id="sponsor_name" name="sponsor_name" required
+                                <input type="text" id="sponsor_name" name="name" required
                                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-faith-orange focus:border-faith-orange transition">
                             </div>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label for="sponsor_email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-                                    <input type="email" id="sponsor_email" name="sponsor_email" required
+                                    <input type="email" id="sponsor_email" name="email" required
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-faith-orange focus:border-faith-orange transition">
                                 </div>
                                 <div>
                                     <label for="sponsor_phone" class="block text-sm font-medium text-gray-700 mb-1">Phone *</label>
-                                    <input type="tel" id="sponsor_phone" name="sponsor_phone" required
+                                    <input type="tel" id="sponsor_phone" name="phone" required
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-faith-orange focus:border-faith-orange transition">
                                 </div>
                             </div>
@@ -174,7 +173,7 @@
                             <div>
                                 <label for="number_of_people" class="block text-sm font-medium text-gray-700 mb-1">Number of People to Sponsor *</label>
                                 <div class="relative">
-                                    <input type="number" id="number_of_people" name="number_of_people" min="1" required
+                                    <input type="number" id="number_of_people" name="num" min="1" required
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-faith-orange focus:border-faith-orange transition">
                                     <div class="absolute right-3 top-2 text-gray-400">
                                         <i class="fas fa-person-praying"></i>
@@ -213,52 +212,6 @@
     </main>
 
     <!-- Testimonials -->
-    <section class="bg-orange-100 py-12">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold text-center text-dark-orange mb-8">Changed Lives Through Sponsorship</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-xl shadow-sm border-t-2 border-faith-orange">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-orange-100 p-3 rounded-full mr-4 text-faith-orange">
-                            <i class="fas fa-cross"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Pastor James M.</h4>
-                            <p class="text-sm text-gray-500">Grace Community Church</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"Our church sponsored 12 people last year. We've seen miraculous transformations as they encountered Christ's healing power."</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-sm border-t-2 border-faith-orange">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-orange-100 p-3 rounded-full mr-4 text-faith-orange">
-                            <i class="fas fa-bible"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Sarah T.</h4>
-                            <p class="text-sm text-gray-500">Recovery Ministry Leader</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"The sponsored attendees from our ministry are now leading others to freedom in Christ. The ripple effect is beautiful!"</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-xl shadow-sm border-t-2 border-faith-orange">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-orange-100 p-3 rounded-full mr-4 text-faith-orange">
-                            <i class="fas fa-pray"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold">Deacon David L.</h4>
-                            <p class="text-sm text-gray-500">Faithful Sponsor</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"Sponsoring just one person can change eternity. I've been blessed to correspond with the young man we sponsored."</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Final Call to Action -->
     <div class="bg-dark-orange text-white py-8">
