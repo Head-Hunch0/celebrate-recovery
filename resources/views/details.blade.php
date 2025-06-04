@@ -373,7 +373,7 @@
                                     
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <label for="church" class="block text-sm font-medium text-gray-700 mb-1">Church / Organization *</label>
+                                            <label for="church" class="block text-sm font-medium text-gray-700 mb-1">Church / Organization / University*</label>
                                             <input type="text" id="church" name="church" required class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none focus:border-orange-500" placeholder="Parklands Baptist">
                                         </div>
                                         <div>
@@ -477,7 +477,7 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
                                     </svg>
-                                    10 AM - 9 PM
+                                    8 AM - 5 PM
                                 </div>
                                 <div class="flex items-start text-gray-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
