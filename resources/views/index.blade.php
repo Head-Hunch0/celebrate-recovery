@@ -44,7 +44,7 @@
     <section class="bg-center bg-no-repeat bg-image bg-gray-500 bg-blend-multiply" style="height: 100vh;">
         <div class="px-4 my-auto mx-auto max-w-screen-xl text-center py-24 lg:py-56">
             <h1 class="mb-2 pt-6 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Celebrate Recovery</h1>
-            <h2 class="mb-4 pt-6 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Conference</h2>
+            <h2 class="mb-2 pt-6 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Conference</h2>
            
         <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-8 z-10 relative">
             <h1 class="mb-4 text-2xl pt-10 font-extrabold tracking-tight leading-none text-white md:text-xl lg:text-2xl dark:text-white">August 13th - 15th <br> Ridgeways Baptist Church <br> Nairobi, Kenya</h1>
