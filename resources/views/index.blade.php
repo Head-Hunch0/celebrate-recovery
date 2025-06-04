@@ -41,6 +41,20 @@
         </div>
     </nav>
 
+    <section class="bg-center bg-no-repeat bg-image bg-gray-500 bg-blend-multiply" style="height: 100vh;">
+        <div class="px-4 my-auto mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+            <h1 class="mb-2 pt-6 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Celebrate Recovery</h1>
+            <h2 class="mb-4 pt-6 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Conference</h2>
+           
+        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-8 z-10 relative">
+            <h1 class="mb-4 text-2xl pt-10 font-extrabold tracking-tight leading-none text-white md:text-xl lg:text-2xl dark:text-white">August 13th - 15th <br> Ridgeways Baptist Church <br> Nairobi, Kenya</h1>
+            <p class="mb-8 text-lg pt-20 font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Celebrate Recovery(CR) is a Christ-centered ministry that helps people overcome <br> "Hurts, Hang-ups and Habits". <br> It is open to anyone who needs support, regardless of their struggles.</p>
+        </div>   
+        </div>
+        
+    </section>
+    
+
     <!-- Hero Section -->
     <section class="hero-gradient bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 text-center">
@@ -65,8 +79,6 @@
                     <div class="text-sm">Seconds</div>
                 </div>
             </div>
-
-
                 <a href="/register" class="inline-block mb-4 bg-white text-orange-600 max-w-sm font-bold py-4 px-10 rounded-lg text-lg hover:bg-gray-100 transition duration-200 shadow-lg">
                     Secure Your Spot
                 </a>
@@ -109,7 +121,8 @@
             </div>
 
             <div class="max-w-3xl mx-auto">
-                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                <!-- Wednesday, August 13, 2025 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
                     <div class="p-6">
                         <div class="flex items-start">
                             <div class="bg-orange-100 text-orange-800 rounded-lg p-3 mr-6">
@@ -118,19 +131,39 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">Friday Evening</h3>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Wednesday, August 13, 2025</h3>
                                 <div class="space-y-4">
                                     <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">6:00 PM</div>
-                                        <div class="text-gray-700">Registration & Welcome</div>
+                                        <div class="text-orange-600 font-medium w-24">8:00 AM</div>
+                                        <div class="text-gray-700">Registration</div>
                                     </div>
                                     <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">7:00 PM</div>
-                                        <div class="text-gray-700">Opening Worship & Testimony</div>
+                                        <div class="text-orange-600 font-medium w-24">9:00 AM</div>
+                                        <div class="text-gray-700">Welcome, Devotional, Praise & Worship</div>
                                     </div>
                                     <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">8:30 PM</div>
-                                        <div class="text-gray-700">Small Group Sessions</div>
+                                        <div class="text-orange-600 font-medium w-24">10:00 AM</div>
+                                        <div class="text-gray-700">Opening Session: What is Celebrate Recovery</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">11:00 AM</div>
+                                        <div class="text-gray-700">The 7 Keys to Start Your Recovery Ministry & Testimony</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">12:00 PM</div>
+                                        <div class="text-gray-700">Lunch (Provided)</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">2:15 PM</div>
+                                        <div class="text-gray-700">What is Codependency? & Testimony</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">3:00 PM</div>
+                                        <div class="text-gray-700">T.E.A.M. Leadership Model, Q&A Panel</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">4:00 PM</div>
+                                        <div class="text-gray-700">Fun Activity, Closing and Prayer</div>
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +171,8 @@
                     </div>
                 </div>
 
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <!-- Thursday, August 14, 2025 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
                     <div class="p-6">
                         <div class="flex items-start">
                             <div class="bg-orange-100 text-orange-800 rounded-lg p-3 mr-6">
@@ -147,15 +181,27 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-gray-900 mb-2">Saturday</h3>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Thursday, August 14, 2025</h3>
                                 <div class="space-y-4">
                                     <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">9:00 AM</div>
-                                        <div class="text-gray-700">Breakfast & Fellowship</div>
+                                        <div class="text-orange-600 font-medium w-24">8:30 AM</div>
+                                        <div class="text-gray-700">Devotion and Praise & Worship</div>
                                     </div>
                                     <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">10:00 AM</div>
-                                        <div class="text-gray-700">Morning Worship & Teaching</div>
+                                        <div class="text-orange-600 font-medium w-24">9:00 AM</div>
+                                        <div class="text-gray-700">The Safety of Small Group Guidelines and Q&A Panel</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">10:30 AM</div>
+                                        <div class="text-gray-700">Accountability Partners & Sponsors, Q & A</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">11:25 AM</div>
+                                        <div class="text-gray-700">Breakout #1: Start-Up Strategy Wendy</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">11:25 AM</div>
+                                        <div class="text-gray-700">Breakout #2: Essentials for Unity</div>
                                     </div>
                                     <div class="flex">
                                         <div class="text-orange-600 font-medium w-24">12:00 PM</div>
@@ -163,11 +209,77 @@
                                     </div>
                                     <div class="flex">
                                         <div class="text-orange-600 font-medium w-24">1:30 PM</div>
-                                        <div class="text-gray-700">Breakout Sessions</div>
+                                        <div class="text-gray-700">Breakouts: Large & Small Group Meeting Structure</div>
                                     </div>
                                     <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">3:30 PM</div>
-                                        <div class="text-gray-700">Closing Celebration</div>
+                                        <div class="text-orange-600 font-medium w-24">2:00 PM</div>
+                                        <div class="text-gray-700">Breakouts: Step Studies</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">3:00 PM</div>
+                                        <div class="text-gray-700">Testimony</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">3:40 PM</div>
+                                        <div class="text-gray-700">Closing and Prayer</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Friday, August 15, 2025 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+                    <div class="p-6">
+                        <div class="flex items-start">
+                            <div class="bg-orange-100 text-orange-800 rounded-lg p-3 mr-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Friday, August 15, 2025</h3>
+                                <div class="space-y-4">
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">8:30 AM</div>
+                                        <div class="text-gray-700">Welcome, Opening Prayer, Devotion and Praise & Worship</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">9:10 AM</div>
+                                        <div class="text-gray-700">Personal & Spiritual Encouragement</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">10:15 AM</div>
+                                        <div class="text-gray-700">Breakout 1: Ensuring Recovery Focused Groups</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">10:15 AM</div>
+                                        <div class="text-gray-700">Breakout 2: Testimony Writing</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">11:05 AM</div>
+                                        <div class="text-gray-700">Accessing CR Mental Health Resources</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">11:30 AM</div>
+                                        <div class="text-gray-700">Lunch (Provided)</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">1:00 PM</div>
+                                        <div class="text-gray-700">Cross Ceremony & Communion</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">2:30 PM</div>
+                                        <div class="text-gray-700">Recap, Closing, Q&A</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">3:00 PM</div>
+                                        <div class="text-gray-700">Connect, Rest & Fellowship</div>
+                                    </div>
+                                    <div class="flex">
+                                        <div class="text-orange-600 font-medium w-24">6:00 PM</div>
+                                        <div class="text-gray-700">Ridgeways Baptist Church 4 Year CR Anniversary Concert</div>
                                     </div>
                                 </div>
                             </div>

@@ -128,7 +128,7 @@
                     </div>
                     <div>
                         <p class="text-gray-500 text-sm">Food</p>
-                        <p class="font-semibold">Provided</p>
+                        <p class="font-semibold">Lunch will be provided</p>
                     </div>
                 </div>
                 

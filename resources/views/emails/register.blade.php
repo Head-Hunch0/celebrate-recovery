@@ -124,6 +124,13 @@
                     Visit Our Website
                 </a>
             </div>
+
+            <div style="display: flex; align-items: center; color: #4B5563; margin-top: 1.25rem; margin-bottom: 1.25rem; font-size: 0.75rem;">
+                If you need financial assistance to purchase your ticket, please email 
+                <a href="mailto:CRConference2025@ridgewaysbaptistchurch.org" style="color: #4B5563; text-decoration: underline; margin: 0 4px;">
+                    CRConference2025@ridgewaysbaptistchurch.org
+                </a>, text or call 0740285959.
+            </div>            
             
             <!-- Footer -->
             <div style="border-top: 1px solid #e5e7eb; padding-top: 24px; text-align: center;">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommunicationController;
+use App\Http\Controllers\MpesaController;
 use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,20 @@ Route::post('/registersponsor', [UserController::class, 'registersponsor'])->nam
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/signin', [UserController::class, 'signin'])->name('signin');
 Route::get('/email', [UserController::class, 'email'])->name('email');
+
+Route::prefix('mpesa')->group(function () {
+    // Show payment form
+    Route::get('/payment', [MpesaController::class, 'showPaymentForm'])->name('mpesa.payment');
+
+    // Initiate STK Push
+    Route::post('/initiate', [MpesaController::class, 'initiateStk'])->name('mpesa.initiate');
+
+    // Check payment status
+    Route::get('/status', [MpesaController::class, 'checkStatus'])->name('mpesa.status');
+
+    // Callback URL (must remain POST)
+    Route::post('/callback', [MpesaController::class, 'handleCallback']);
+});
 
 Route::post('/purchase', [TicketsController::class, 'payment'])->name('payment');
 Route::post('/purchase/sponsor', [TicketsController::class, 'paymentsponsor'])->name('payment.sponsor');
