@@ -46,7 +46,7 @@
             <h1 class="mb-2 pt-6 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Celebrate Recovery</h1>
             <h2 class="mb-2 pt-6 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Conference</h2>
            
-        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-8 z-10 relative">
+        <div class="py-6 px-4 mx-auto max-w-screen-xl text-center lg:py-8 z-10 relative">
             <h1 class="mb-4 text-2xl pt-10 font-extrabold tracking-tight leading-none text-white md:text-xl lg:text-2xl dark:text-white">August 13th - 15th <br> Ridgeways Baptist Church <br> Nairobi, Kenya</h1>
             <p class="mb-8 text-lg pt-20 font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Celebrate Recovery(CR) is a Christ-centered ministry that helps people overcome <br> "Hurts, Hang-ups and Habits". <br> It is open to anyone who needs support, regardless of their struggles.</p>
         </div>   
