@@ -153,8 +153,8 @@ class UserController extends Controller
 
         Log::info('User created', $user->toArray());
 
-        // Send confirmation email
-        Mail::to($request->email)->send(new RegistrationEmail($userData));
+        // // Send confirmation email
+        // Mail::to($request->email)->send(new RegistrationEmail($userData));
         // Log the user in
         $ticket = '1000';
         $uuid = $user->uuid;
