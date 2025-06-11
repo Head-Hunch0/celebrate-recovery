@@ -4,6 +4,7 @@ use App\Http\Controllers\CommunicationController;
 use App\Http\Controllers\MpesaController;
 use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\UserController;
+use App\Services\MpesaService;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,6 +21,11 @@ Route::post('/registersponsor', [UserController::class, 'registersponsor'])->nam
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/signin', [UserController::class, 'signin'])->name('signin');
 Route::get('/email', [UserController::class, 'email'])->name('email');
+
+
+Route::get('/test-mpesa', function (MpesaService $service) {
+    dd(method_exists($service, 'initiateSTKPush'));
+});
 
 Route::prefix('mpesa')->group(function () {
     // Show payment form
@@ -41,6 +47,7 @@ Route::post('/purchase/sponsor', [TicketsController::class, 'paymentsponsor'])->
 Route::prefix('/admin')->group(function () {
     Route::get('/passconfirm', [UserController::class, 'passconfirm'])->name('passconfirm');
     Route::post('/passupdate', [UserController::class, 'passupdate'])->name('passupdate');
+    Route::post('/search', [TicketsController::class, 'search'])->name('search');
     // Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::get('/tickets', [TicketsController::class, 'ticketsscan'])->name('admin.tickets');
     Route::post('/tickets/verify', [TicketsController::class, 'verify']);

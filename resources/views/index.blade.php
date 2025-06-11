@@ -43,12 +43,13 @@
 
     <section class="bg-center bg-no-repeat bg-image bg-gray-500 bg-blend-multiply" style="height: 100vh;">
         <div class="px-4 my-auto mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-            <h1 class="mb-2 pt-6 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Celebrate Recovery</h1>
+            <h1 class="mb pt-6 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Celebrate Recovery</h1>
             <h2 class="mb-2 pt-6 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Conference</h2>
-           
-        <div class="py-6 px-4 mx-auto max-w-screen-xl text-center lg:py-8 z-10 relative">
-            <h1 class="mb-4 text-2xl pt-10 font-extrabold tracking-tight leading-none text-white md:text-xl lg:text-2xl dark:text-white">August 13th - 15th <br> Ridgeways Baptist Church <br> Nairobi, Kenya</h1>
-            <p class="mb-8 text-lg pt-20 font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Celebrate Recovery(CR) is a Christ-centered ministry that helps people overcome <br> "Hurts, Hang-ups and Habits". <br> It is open to anyone who needs support, regardless of their struggles.</p>
+            
+            <div class="py-6 px-4 mx-auto max-w-screen-xl text-center lg:py-8 z-10 relative">
+                <h1 class="mb text-2xl pt-10 font-extrabold tracking-tight leading-none text-white md:text-xl lg:text-2xl dark:text-white">August 13th - 15th <br> Ridgeways Baptist Church <br> Nairobi, Kenya</h1>
+                <p class="mb text-lg  font-normal text-white lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Church Lane off Kiambu Rd</p>
+                <p class="mb text-lg pt-10 font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-200">Celebrate Recovery(CR) is a Christ-centered ministry that helps people overcome <br> "Hurts, Hang-ups and Habits". <br> It is open to anyone who needs support, regardless of their struggles.</p>
         </div>   
         </div>
         
@@ -317,7 +318,7 @@
 
     <!-- Registration -->
     <!-- Speakers Section -->
-    <section class="py-16 bg-orange-50">
+    <section class="py-16 bg-orange-50 hidden">
         <div class="container mx-auto px-6 max-w-7xl">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-orange-700 mb-4">Featured Speakers</h2>
@@ -655,8 +656,7 @@
                         <ul class="space-y-2">
                             <li><a href="#about" class="text-gray-300 hover:text-white">About</a></li>
                             <li><a href="#schedule" class="text-gray-300 hover:text-white">Schedule</a></li>
-                            <li><a href="#testimonials" class="text-gray-300 hover:text-white">Stories</a></li>
-                            <li><a href="#register" class="text-gray-300 hover:text-white">Register</a></li>
+                            <li><a href="/register" class="text-gray-300 hover:text-white">Register</a></li>
                         </ul>
                     </div>
                     <div>
@@ -682,10 +682,29 @@
                     <div>
                         <h3 class="text-sm font-semibold text-orange-400 tracking-wider uppercase mb-4">Contact</h3>
                         <ul class="space-y-2">
-                            <li class="text-gray-300">[Church Name]</li>
-                            <li class="text-gray-300">[Church Address]</li>
-                            <li class="text-gray-300">[Phone Number]</li>
-                            <li class="text-gray-300">[Email]</li>
+                            <li class="text-gray-300">Ridgeways Baptist Church</li>
+                            <li class="text-gray-300">
+                                <a href="tel:0740285959" class="flex items-center text-gray-700 hover:text-orange-600 space-x-2">
+                                    <!-- Phone Icon -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-600" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                                    </svg>
+                                    <!-- Text -->
+                                    <span>+254740285959</span>
+                                </a>
+                                
+                            </li>
+                            <li class="text-gray-300">
+                                <a href="mailto:CRConference2025@ridgewaysbaptistchurch.org" class="flex items-center text-gray-700 hover:text-orange-600 space-x-2">
+                                <!-- Email Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-orange-600" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                                </svg>
+                                <!-- Text -->
+                                <span>Email Us</span>
+                            </a>
+                        </li>
                         </ul>
                     </div>
                 </div>

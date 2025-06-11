@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TicketEmail;
 use App\Models\Tickets;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 
@@ -157,6 +159,22 @@ class TicketsController extends Controller
         // Redirect to a success page or return a response
         // return view('ticket', compact('ticket'))->with('message', 'Payment successful!');
         // return redirect()->route('ticket')->with('message', 'Payment successful!')->with(['ticket' => $ticket]);
+        $userData = [
+            'name' => $user->full_name,
+            'email' => $user->email,
+            'uuid' => $user->uuid,
+            'phone' => $user->phone_number,
+            'ticket_number' => $ticket,
+            'ticket_type' => $validated['ticket_type'],
+            'price' => $validated['price'],
+        ];
+
+
+        Log::info('User created', $user->toArray());
+
+        // Send confirmation email
+        Mail::to($user->email)->send(new TicketEmail($userData));
+
         return redirect()->route('ticket', ['id' => $ticket])
             ->with('message', 'Payment successful!')
             ->with(['ticket' => $ticket]);
@@ -256,6 +274,32 @@ class TicketsController extends Controller
         return view('ticket', ['ticket' => $ticket]);
     }
 
+    public function search(Request $request)
+    {
+        $searchTerm = $request->input('search');
+
+        $tickets = Tickets::when($searchTerm, function ($query) use ($searchTerm) {
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('uuid', 'like', "%{$searchTerm}%")
+                    ->orWhere('full_name', 'like', "%{$searchTerm}%")
+                    ->orWhere('phone_number', 'like', "%{$searchTerm}%");
+            });
+        })
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->map(function ($ticket) {
+                return [
+                    'uuid' => $ticket->uuid,
+                    'full_name' => $ticket->full_name,
+                    'phone_number' => $ticket->phone_number,
+                    'created_at' => $ticket->created_at->toDateTimeString()
+                ];
+            });
+
+        return response()->json([
+            'tickets' => $tickets
+        ]);
+    }
 
     // Verify ticket by scanning QR code
     public function verify(Request $request)
@@ -334,6 +378,10 @@ class TicketsController extends Controller
     public function update(Request $request, Tickets $tickets)
     {
         //
+    }
+
+    public function sponsored(){
+
     }
 
     /**

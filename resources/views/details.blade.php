@@ -297,7 +297,8 @@
                     <div class="bg-white rounded-xl shadow-md overflow-hidden">
                         <div class="p-8 form-section">
                             <h1 class="text-3xl font-bold text-gray-900 mb-2">Registration Form</h1>
-                            <p class="text-gray-600 mb-8">Please fill out all required fields to complete your registration for the Celebrate Recovery event.</p>
+                            <p class="text-gray-600 mb-8">Please fill out all required fields to complete your registration for the Celebrate Recovery event <br>
+                            Space is limited and registrations will close once capacity is reached.</p>
 
                             <form id="registrationForm" enctype="multipart/form-data" action="{{ route('register.user') }}" method="POST">
                                 @csrf
@@ -373,7 +374,7 @@
                                     
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <label for="church" class="block text-sm font-medium text-gray-700 mb-1">Church / Organization / University*</label>
+                                            <label for="church" class="block text-sm font-medium text-gray-700 mb-1">Church / Organization / University *</label>
                                             <input type="text" id="church" name="church" required class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none focus:border-orange-500" placeholder="Parklands Baptist">
                                         </div>
                                         <div>
@@ -518,12 +519,14 @@
                             </h3>
                             <p class="text-gray-600 mb-4">If you have any questions about registration, please contact us:</p>
                             <div class="space-y-2">
-                                <div class="flex items-center text-gray-700">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-orange-600" viewBox="0 0 20 20" fill="currentColor">
+                                <a href="tel:0740285959" class="flex items-center text-gray-700 hover:text-orange-600 space-x-2">
+                                    <!-- Phone Icon -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-600" viewBox="0 0 20 20" fill="currentColor">
                                         <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                                     </svg>
-                                    0740285959
-                                </div>
+                                    <!-- Text -->
+                                    <span>+254740285959</span>
+                                </a>                                
                                 
                                 <a href="mailto:CRConference2025@ridgewaysbaptistchurch.org" class="flex items-center text-gray-700 hover:text-orange-600 space-x-2">
                                     <!-- Email Icon -->
@@ -575,14 +578,27 @@
     });
 
     // Show/hide sponsor number field based on selection
+    // document.getElementById('sponsor').addEventListener('change', function() {
+    //     const numSection = document.getElementById('num-section');
+    //     if (this.value === 'Yes') {
+    //         numSection.classList.remove('hidden');
+    //     } else {
+    //         numSection.classList.add('hidden');
+    //     }
+    // });
+
     document.getElementById('sponsor').addEventListener('change', function() {
-        const numSection = document.getElementById('num-section');
-        if (this.value === 'Yes') {
-            numSection.classList.remove('hidden');
-        } else {
-            numSection.classList.add('hidden');
-        }
-    });
+    const numSection = document.getElementById('num-section');
+    const numSectionInput = document.querySelector('#num-section input'); // Get the actual input field
+    
+    if (this.value === 'Yes') {
+        numSection.classList.remove('hidden');
+        numSectionInput.setAttribute('required', 'required'); // Add required attribute
+    } else {
+        numSection.classList.add('hidden');
+        numSectionInput.removeAttribute('required'); // Remove required attribute
+    }
+});
 </script>
 </body>
 </html>
