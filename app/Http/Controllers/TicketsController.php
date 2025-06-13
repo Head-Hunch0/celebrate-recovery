@@ -107,6 +107,7 @@ class TicketsController extends Controller
         // Validate the request data
         $validated = $request->validate([
             'confirmation' => 'required',
+            'price' => 'required|numeric',
             // 'confirmation' => 'required|regex:/^[A-Z0-9]{10}$/|size:10',
         ]);
 
@@ -117,8 +118,8 @@ class TicketsController extends Controller
 
         $user = User::where('uuid', $request->uuid)->firstOrFail();
         if($user->willing_to_sponsor !== 0){
-            $validated['ticket_type'] = 'sponsored';
-            $validated['price'] = 1000;
+            $validated['ticket_type'] = 'personal';
+            $validated['price'] = $validated['price'] ?? 1000; // Default price if not provided
         }
         Log::info('User data:', $user->toArray());
         $ticket = Tickets::create([
@@ -169,6 +170,8 @@ class TicketsController extends Controller
             'price' => $validated['price'],
         ];
 
+        // Log the user data
+        Log::info('User data for ticket creation:', $userData);
 
         Log::info('User created', $user->toArray());
 

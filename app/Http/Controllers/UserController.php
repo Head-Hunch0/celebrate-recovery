@@ -28,7 +28,7 @@ class UserController extends Controller
         try {
             $validated = $request->validate([
                 'name' => 'string|max:255',
-                'email' => 'email|unique:users,email',
+                'email' => 'email|',
                 'sex' => 'nullable|string',
                 'wa' => 'string',
                 'phone' => 'string|max:20',
@@ -99,7 +99,7 @@ class UserController extends Controller
         try {
             $validated = $request->validate([
                 'name' => 'string|max:255',
-                'email' => 'email|unique:users,email',
+                'email' => 'email',
                 'sex' => 'nullable|string',
                 'wa' => 'string',
                 'phone' => 'string|max:20',

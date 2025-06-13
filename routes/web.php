@@ -32,7 +32,7 @@ Route::prefix('mpesa')->group(function () {
     Route::get('/payment', [MpesaController::class, 'showPaymentForm'])->name('mpesa.payment');
 
     // Initiate STK Push
-    Route::post('/initiate', [MpesaController::class, 'initiateStk'])->name('mpesa.initiate');
+    Route::post('/initiate', [MpesaController::class, 'initiatePayment'])->name('mpesa.initiate');
 
     // Check payment status
     Route::get('/status', [MpesaController::class, 'checkStatus'])->name('mpesa.status');

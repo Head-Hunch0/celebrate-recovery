@@ -168,7 +168,7 @@
                             <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="focus:outline-none text-gray-900 shadow-lg bg-green-400 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-3 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="button">
                                 Initiate Payment
                             </button>
-                            
+                            <input type="text" name="price" hidden value="{{$total}}">
                         </div>
               
                         <div class="flex justify-between">
