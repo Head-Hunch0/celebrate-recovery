@@ -5,6 +5,7 @@ namespace App\Services;
 use Safaricom\Mpesa\Mpesa;
 use App\Models\MpesaTransaction;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 
 class MpesaService
@@ -131,11 +132,16 @@ class MpesaService
 
 
     protected $mpesa;
+    protected $tokenExpiryMinutes = 55; // Tokens expire after 55 mins (MPesa limit is 60)
+
 
     public function __construct()
     {
         $this->mpesa = new Mpesa();
     }
+
+    // The Safaricom\Mpesa\Mpesa package handles authentication internally,
+    // so explicit token generation and caching is not required.
 
     public function initiateSTKPush($phoneNumber, $amount, $accountReference)
     {

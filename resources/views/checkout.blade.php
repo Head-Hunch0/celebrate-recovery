@@ -235,7 +235,7 @@
                             </div>
                             <!-- Modal body -->
                             <div class="p-4 md:p-5">
-                                <form class="space-y-4" action="/mpesa/initiate" method="POST">
+                                <form class="space-y-4" action="{{ route('mpesa.initiate') }}" method="POST">
                                     @csrf
                                     <div>
                                         <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Number</label>

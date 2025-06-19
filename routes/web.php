@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CommunicationController;
 use App\Http\Controllers\MpesaController;
 use App\Http\Controllers\TicketsController;
@@ -7,9 +8,8 @@ use App\Http\Controllers\UserController;
 use App\Services\MpesaService;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [AdminController::class, 'index'])->name('index');
+
 Route::get('/ticket/{id}', [TicketsController::class, 'ticket'])->name('ticket');
 Route::get('/register', [TicketsController::class, 'show'])->name('register');
 Route::get('/sponsor', [TicketsController::class, 'sponsor'])->name('sponsor');
@@ -27,7 +27,7 @@ Route::get('/test-mpesa', function (MpesaService $service) {
     dd(method_exists($service, 'initiateSTKPush'));
 });
 
-Route::prefix('mpesa')->group(function () {
+Route::prefix('payment')->group(function () {
     // Show payment form
     Route::get('/payment', [MpesaController::class, 'showPaymentForm'])->name('mpesa.payment');
 
@@ -44,10 +44,10 @@ Route::prefix('mpesa')->group(function () {
 Route::post('/purchase', [TicketsController::class, 'payment'])->name('payment');
 Route::post('/purchase/sponsor', [TicketsController::class, 'paymentsponsor'])->name('payment.sponsor');
 
-Route::prefix('/admin')->group(function () {
-    Route::get('/passconfirm', [UserController::class, 'passconfirm'])->name('passconfirm');
+Route::middleware('auth')->prefix('/admin')->group(function () {
+Route::get('/passconfirm', [UserController::class, 'passconfirm'])->name('passconfirm');
     Route::post('/passupdate', [UserController::class, 'passupdate'])->name('passupdate');
-    Route::post('/search', [TicketsController::class, 'search'])->name('search');
+    Route::post('/registered-tickets/search', [TicketsController::class, 'search'])->name('search');
     // Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::get('/tickets', [TicketsController::class, 'ticketsscan'])->name('admin.tickets');
     Route::post('/tickets/verify', [TicketsController::class, 'verify']);
@@ -56,6 +56,17 @@ Route::prefix('/admin')->group(function () {
     Route::get('/confirmed-tickets', [TicketsController::class, 'confirmed'])->name('admin.confirmed-tickets');
     Route::get('/sponsoring-tickets', [TicketsController::class, 'sponsoring'])->name('admin.sponsoring-tickets');
     Route::get('/sponsored-tickets', [TicketsController::class, 'sponsored'])->name('admin.sponsored-tickets');
+
+    Route::prefix('/website')->group(function () {
+    Route::get('/schedule', [AdminController::class, 'schedule'])->name('admin.website.schedule');
+    Route::post('/schedule/add', [AdminController::class, 'scheduleAdd'])->name('admin.website.schedule.add');
+    Route::get('/schedule/delete/{id}', [AdminController::class, 'scheduleDelete'])->name('admin.website.schedule.delete');
+
+    Route::get('/speaker', [AdminController::class, 'speaker'])->name('admin.website.speaker');
+    Route::post('/speaker/add', [AdminController::class, 'speakerAdd'])->name('admin.website.speaker.add');
+    Route::post('/speakers/toggle', [AdminController::class, 'speakerToggle'])->name('admin.website.speaker.toggle');
+    Route::get('/speaker/delete/{id}', [AdminController::class, 'speakerDelete'])->name('admin.website.speaker.delete');
+    });
 
     Route::get('/comms-templates', [CommunicationController::class, 'templates'])->name('admin.comms-templates');
     Route::get('/comms/templates/store', [CommunicationController::class, 'store'])->name('admin.comms.templates.store');

@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Log;
 
 class User extends Authenticatable
 {
@@ -56,5 +57,21 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function scopeSearch($query, $term)
+    {
+        $term = trim(mb_strtolower($term));
+
+        // Split search into words
+        $words = preg_split('/\s+/', $term); // Handles multiple spaces
+
+        return $query->where(function ($query) use ($words) {
+            foreach ($words as $word) {
+                $query->orWhereRaw('LOWER(full_name) LIKE ?', ["%{$word}%"])
+                    ->orWhereRaw('LOWER(phone_number) LIKE ?', ["%{$word}%"])
+                    ->orWhereRaw('LOWER(country) LIKE ?', ["%{$word}%"]);
+            }
+        });
     }
 }

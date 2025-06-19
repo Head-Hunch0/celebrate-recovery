@@ -48,18 +48,7 @@ class TicketsController extends Controller
         //
         $tickets = [];
         // Fetch all registered tickets from the database
-        // $tickets = Tickets::where('status', 'pending')->get(); for tickets
         $tickets = User::get();
-
-        // add the name, email, and phone of the user who registered the ticket
-        // foreach ($tickets as $key){
-        //     $key['name'] = User::where('id', $key->userID)->first()->firstname . ' ' . User::where('id', $key->userID)->first()->lastname;
-        //     $key['email'] = User::where('id', $key->userID)->first()->email;
-        //     $key['phone'] = User::where('id', $key->userID)->first()->phone;
-        // }
-
-        // dd($tickets->toArray());
-
         // Return the view with the tickets data
         return view('admin.tickets.registered-tickets', compact('tickets'));
     }
@@ -281,23 +270,7 @@ class TicketsController extends Controller
     {
         $searchTerm = $request->input('search');
 
-        $tickets = Tickets::when($searchTerm, function ($query) use ($searchTerm) {
-            $query->where(function ($q) use ($searchTerm) {
-                $q->where('uuid', 'like', "%{$searchTerm}%")
-                    ->orWhere('full_name', 'like', "%{$searchTerm}%")
-                    ->orWhere('phone_number', 'like', "%{$searchTerm}%");
-            });
-        })
-            ->orderBy('created_at', 'desc')
-            ->get()
-            ->map(function ($ticket) {
-                return [
-                    'uuid' => $ticket->uuid,
-                    'full_name' => $ticket->full_name,
-                    'phone_number' => $ticket->phone_number,
-                    'created_at' => $ticket->created_at->toDateTimeString()
-                ];
-            });
+        $tickets = User::search($searchTerm)->get();
 
         return response()->json([
             'tickets' => $tickets

@@ -276,8 +276,8 @@
         <div class="container mx-auto px-4 py-6">
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
-                    <img src="{{asset('images/promotion.png')}}" alt="Celebrate Recovery" class="h-12">
-                    <span class="ml-4 text-xl font-bold hidden md:block">Healing Begins Here</span>
+                    <img src="{{asset('images/WhiteCRLogo.png')}}" alt="Celebrate Recovery" class="h-20">
+                    <span class="ml-2 mb-3 text-xl font-bold hidden md:block">Healing Begins Here</span>
                 </div>
                 <div>
                     <a href="/" class="bg-white text-orange-600 px-6 py-2 rounded-lg font-bold hover:bg-orange-50 transition">Back to Event</a>
@@ -550,7 +550,7 @@
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="text-center">
-                <img class="h-12 mx-auto mb-6" src="https://celebraterecovery.com/wp-content/uploads/2022/08/cr-logo-white.png" alt="Celebrate Recovery">
+                <img class="h-20 mx-auto mb-6" src="{{asset('images/CRLogo.png')}}" alt="Celebrate Recovery">
                 <p class="text-gray-400 max-w-2xl mx-auto mb-6">A Christ-centered recovery program for anyone struggling with hurt, pain or addiction of any kind.</p>
                 <div class="flex justify-center space-x-6 mb-6">
                     <a href="#" class="text-gray-400 hover:text-white">

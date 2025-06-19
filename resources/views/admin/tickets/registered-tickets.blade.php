@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_green.min.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>CR - Tickets - Registered </title>
 </head>
 <body>
@@ -39,7 +40,7 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Ticket No.
+                    Registration No.
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Names
@@ -55,7 +56,7 @@
                 </th>
             </tr>
         </thead>
-        <tbody >
+        <tbody id="tableContainer">
             @foreach ($tickets as $ticket)    
             
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -85,7 +86,9 @@
         </tbody>
     </table>
     @else
-            <p class="mt-4 text-gray-500">No tickets found for "{{ $searchTerm }}"</p>
+    <div class="flex items-center justify-content-center">
+        <p class="mx-auto">No User found for "{{$searchTerm}}"</p>
+    </div>
     @endif
 </div>
 

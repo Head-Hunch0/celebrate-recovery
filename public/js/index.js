@@ -196,7 +196,7 @@ function downloadTableAsCSV(filename = "tickets.csv") {
 }
 
 
-document.getElementById("searchInput").addEventListener("input", function (e) {
+document.getElementById("table-search").addEventListener("input", function (e) {
     const searchTerm = e.target.value.trim();
 
     // Only search after 2 characters or when empty
@@ -206,11 +206,20 @@ document.getElementById("searchInput").addEventListener("input", function (e) {
 });
 
 function fetchSearchResults(searchTerm) {
-    fetch(`/admin/search?search=${encodeURIComponent(searchTerm)}`, {
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    fetch(`/admin/registered-tickets/search`, {
+        // fetch(`/admin/search?search=${encodeURIComponent(searchTerm)}`, {
+        method: "POST",
         headers: {
+            "Content-Type": "application/json",
             Accept: "application/json",
             "X-Requested-With": "XMLHttpRequest",
+            "X-CSRF-TOKEN": csrfToken,
         },
+        body: JSON.stringify({
+            search: searchTerm,
+        }),
     })
         .then((response) => response.json())
         .then((data) => {
@@ -225,23 +234,32 @@ function updateTable(tickets) {
 
     if (!tickets || tickets.length === 0) {
         tableContainer.innerHTML =
-            '<p class="mt-4 text-gray-500">No tickets found</p>';
+            `<div class="flex items-center py-5s justify-content-center">
+                <p class="mx-auto">No User found </p>
+            </div>`;
         return;
     }
 
-    // Rebuild the table body
     let html = "";
     tickets.forEach((ticket) => {
+        const formattedDate = new Date(ticket.created_at).toLocaleString(
+            "sv-SE"
+        ); // "YYYY-MM-DD HH:mm:ss"
+
         html += `
-        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">${
-                ticket.uuid
-            }</td>
-            <td class="px-6 py-4">${ticket.full_name}</td>
-            <td class="px-6 py-4">${ticket.phone_number}</td>
-            <td class="px-6 py-4">${new Date(
-                ticket.created_at
-            ).toLocaleString()}</td>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                ${ticket.uuid}
+            </td>
+            <td class="px-6 py-4">
+                ${ticket.full_name}
+            </td>
+            <td class="px-6 py-4">
+                ${ticket.phone_number}
+            </td>
+            <td class="px-6 py-4">
+                ${formattedDate}
+            </td>
             <td class="px-6 py-4">
                 <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">More</a>
             </td>
@@ -249,21 +267,12 @@ function updateTable(tickets) {
         `;
     });
 
-    // If table body exists, update it; otherwise recreate entire table
+    // If tableBody exists (table already rendered), just update tbody
     if (tableBody) {
         tableBody.innerHTML = html;
     } else {
         tableContainer.innerHTML = `
         <table id="registrationsTable" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th scope="col" class="px-6 py-3">Ticket No.</th>
-                    <th scope="col" class="px-6 py-3">Names</th>
-                    <th scope="col" class="px-6 py-3">Number</th>
-                    <th scope="col" class="px-6 py-3">Time</th>
-                    <th scope="col" class="px-6 py-3">Action</th>
-                </tr>
-            </thead>
             <tbody id="tableBody">
                 ${html}
             </tbody>
@@ -271,3 +280,4 @@ function updateTable(tickets) {
         `;
     }
 }
+

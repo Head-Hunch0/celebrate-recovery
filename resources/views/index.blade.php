@@ -27,7 +27,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-24 items-center">
                 <div class="flex-shrink-0 flex items-center">
-                    <img class="h-14" src="https://celebraterecovery.com/wp-content/uploads/2022/08/cr-logo.png" alt="Celebrate Recovery">
+                    <img class="h-20" src="{{asset('images/CRLogo.png')}}" alt="Celebrate Recovery"> <span class="mb-5">Celebrate Recovery</span> 
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-8">
@@ -102,8 +102,10 @@
                     <img src="{{asset('images/worship4.jpg')}}" alt="Celebrate Recovery Group" class="rounded-lg shadow-xl">
                 </div>
                 <div class="md:w-1/2">
-                    <p class="text-gray-700 mb-6 text-lg">Celebrate Recovery is a Christ-centered, 12-step recovery program for anyone struggling with hurt, pain or addiction of any kind.</p>
-                    <p class="text-gray-700 mb-6">This special event will feature powerful worship, authentic testimonies, and small group discussions that provide a safe place to find community and freedom from life's hurts, hang-ups, and habits.</p>
+                    <p class="text-gray-700 mb-6 text">Celebrate Recovery is a Christ-centered, 12-step recovery program for anyone struggling with hurts, hang-ups and habits of any kind.</p>
+                    <p class="text-gray-700 mb-6">This special event will explain what Celebrate Recovery is, how it works and how to launch this ministry in your organization.
+                        You'll experience powerful worship, authentic testimonies and connect with others who have experienced the healing & transformation Jesus offers through this ministry.
+                    </p>
                     <div class="bg-orange-50 border-l-4 border-orange-500 p-4">
                         <p class="text-orange-800 font-medium">"Then you will know the truth, and the truth will set you free."</p>
                         <p class="text-orange-600">— John 8:32 (NIV)</p>
@@ -134,38 +136,20 @@
                             <div>
                                 <h3 class="text-xl font-bold text-gray-900 mb-2">Wednesday, August 13, 2025</h3>
                                 <div class="space-y-4">
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">8:00 AM</div>
-                                        <div class="text-gray-700">Registration</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">9:00 AM</div>
-                                        <div class="text-gray-700">Welcome, Devotional, Praise & Worship</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">10:00 AM</div>
-                                        <div class="text-gray-700">Opening Session: What is Celebrate Recovery</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">11:00 AM</div>
-                                        <div class="text-gray-700">The 7 Keys to Start Your Recovery Ministry & Testimony</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">12:00 PM</div>
-                                        <div class="text-gray-700">Lunch (Provided)</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">2:15 PM</div>
-                                        <div class="text-gray-700">What is Codependency? & Testimony</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">3:00 PM</div>
-                                        <div class="text-gray-700">T.E.A.M. Leadership Model, Q&A Panel</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">4:00 PM</div>
-                                        <div class="text-gray-700">Fun Activity, Closing and Prayer</div>
-                                    </div>
+                                    @if ($Schedule)
+                            
+                                        @foreach ($wed as $item)
+                                        
+                                        <div class="flex">
+                                            <div class="text-orange-600 font-medium w-24">                                            
+                                                {{ \Carbon\Carbon::createFromFormat('H:i:s', $item->time)->format('h:i A') }}                                            
+                                            </div>
+                                            <div class="text-gray-700">{{$item->theme}}</div>
+                                        </div>
+                                        @endforeach
+                                            
+                                    @endif
+                                    
                                 </div>
                             </div>
                         </div>
@@ -184,46 +168,19 @@
                             <div>
                                 <h3 class="text-xl font-bold text-gray-900 mb-2">Thursday, August 14, 2025</h3>
                                 <div class="space-y-4">
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">8:30 AM</div>
-                                        <div class="text-gray-700">Devotion and Praise & Worship</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">9:00 AM</div>
-                                        <div class="text-gray-700">The Safety of Small Group Guidelines and Q&A Panel</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">10:30 AM</div>
-                                        <div class="text-gray-700">Accountability Partners & Sponsors, Q & A</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">11:25 AM</div>
-                                        <div class="text-gray-700">Breakout #1: Start-Up Strategy Wendy</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">11:25 AM</div>
-                                        <div class="text-gray-700">Breakout #2: Essentials for Unity</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">12:00 PM</div>
-                                        <div class="text-gray-700">Lunch (Provided)</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">1:30 PM</div>
-                                        <div class="text-gray-700">Breakouts: Large & Small Group Meeting Structure</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">2:00 PM</div>
-                                        <div class="text-gray-700">Breakouts: Step Studies</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">3:00 PM</div>
-                                        <div class="text-gray-700">Testimony</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">3:40 PM</div>
-                                        <div class="text-gray-700">Closing and Prayer</div>
-                                    </div>
+                                    @if ($Schedule)
+                            
+                                        @foreach ($thur as $item)
+                                        
+                                        <div class="flex">
+                                            <div class="text-orange-600 font-medium w-24">                                            
+                                                {{ \Carbon\Carbon::createFromFormat('H:i:s', $item->time)->format('h:i A') }}                                            
+                                            </div>
+                                            <div class="text-gray-700">{{$item->theme}}</div>
+                                        </div>
+                                        @endforeach
+                                            
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -242,46 +199,19 @@
                             <div>
                                 <h3 class="text-xl font-bold text-gray-900 mb-2">Friday, August 15, 2025</h3>
                                 <div class="space-y-4">
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">8:30 AM</div>
-                                        <div class="text-gray-700">Welcome, Opening Prayer, Devotion and Praise & Worship</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">9:10 AM</div>
-                                        <div class="text-gray-700">Personal & Spiritual Encouragement</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">10:15 AM</div>
-                                        <div class="text-gray-700">Breakout 1: Ensuring Recovery Focused Groups</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">10:15 AM</div>
-                                        <div class="text-gray-700">Breakout 2: Testimony Writing</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">11:05 AM</div>
-                                        <div class="text-gray-700">Accessing CR Mental Health Resources</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">11:30 AM</div>
-                                        <div class="text-gray-700">Lunch (Provided)</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">1:00 PM</div>
-                                        <div class="text-gray-700">Cross Ceremony & Communion</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">2:30 PM</div>
-                                        <div class="text-gray-700">Recap, Closing, Q&A</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">3:00 PM</div>
-                                        <div class="text-gray-700">Connect, Rest & Fellowship</div>
-                                    </div>
-                                    <div class="flex">
-                                        <div class="text-orange-600 font-medium w-24">6:00 PM</div>
-                                        <div class="text-gray-700">Ridgeways Baptist Church 4 Year CR Anniversary Concert</div>
-                                    </div>
+                                    @if ($Schedule)
+                            
+                                        @foreach ($fri as $item)
+                                        
+                                        <div class="flex">
+                                            <div class="text-orange-600 font-medium w-24">                                            
+                                                {{ \Carbon\Carbon::createFromFormat('H:i:s', $item->time)->format('h:i A') }}                                            
+                                            </div>
+                                            <div class="text-gray-700">{{$item->theme}}</div>
+                                        </div>
+                                        @endforeach
+                                            
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -647,7 +577,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="md:flex md:justify-between">
                 <div class="mb-8 md:mb-0">
-                    <img class="h-12 mb-4" src="https://celebraterecovery.com/wp-content/uploads/2022/08/cr-logo-white.png" alt="Celebrate Recovery">
+                    <img class="h-20 mb-4" src="{{asset('images/CRLogo.png')}}" alt="Celebrate Recovery">
                     <p class="text-gray-400 max-w-md">A Christ-centered recovery program for anyone struggling with hurt, pain or addiction of any kind.</p>
                 </div>
                 <div class="grid grid-cols-2 gap-8 sm:grid-cols-3">
