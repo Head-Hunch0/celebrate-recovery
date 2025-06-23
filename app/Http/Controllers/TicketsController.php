@@ -35,8 +35,17 @@ class TicketsController extends Controller
         return view('thankyou');
     }
 
-    public function checkout(){
-        return view('checkout');
+    public function checkout(Request $request)
+    {
+        return view('checkout', [
+            'ticket' => $request->query('ticket'),
+            'total' => $request->query('total'),
+            'uuid' => $request->query('uuid'),
+            'sponsoring' => $request->query('sponsoring'),
+            'totalUsd' => $request->query('totalUsd'),
+            'ticketUsd' => $request->query('ticketUsd'),
+            'sponsoringUsd' => $request->query('sponsoringUsd')
+        ]);
     }
 
     public function index(){
@@ -167,9 +176,11 @@ class TicketsController extends Controller
         // Send confirmation email
         Mail::to($user->email)->send(new TicketEmail($userData));
 
-        return redirect()->route('ticket', ['id' => $ticket])
-            ->with('message', 'Payment successful!')
-            ->with(['ticket' => $ticket]);
+        return view('confirm');
+
+        // return redirect()->route('ticket', ['id' => $ticket])
+        //     ->with('message', 'Payment successful!')
+        //     ->with(['ticket' => $ticket]);
     }
 
     public function paymentsponsor(Request $request)
@@ -225,14 +236,8 @@ class TicketsController extends Controller
         ]);
         $ticket = $ticket->ticket_number;
 
-        // Log::info('Ticket created:', $ticket->toArray());
-        // dd($ticket);
-        // Redirect to a success page or return a response
         return view('thankyou');
-        // return redirect()->route('ticket')->with('message', 'Payment successful!')->with(['ticket' => $ticket]);
-        // return redirect()->route('ticket', ['id' => $ticket])
-        //     ->with('message', 'Payment successful!')
-        //     ->with(['ticket' => $ticket]);
+
     }
 
     // demo ticket

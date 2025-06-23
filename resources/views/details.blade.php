@@ -375,7 +375,7 @@
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
                                             <label for="church" class="block text-sm font-medium text-gray-700 mb-1">Church / Organization / University *</label>
-                                            <input type="text" id="church" name="church" required class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none focus:border-orange-500" placeholder="Parklands Baptist">
+                                            <input type="text" id="church" name="church" required class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none focus:border-orange-500" placeholder="Ridgeways Baptist Church">
                                         </div>
                                         <div>
                                             <label for="cr" class="block text-sm font-medium text-gray-700 mb-1">Are you currently part of a Celebrate Recovery group? *</label>
@@ -387,7 +387,7 @@
                                         </div>
                                         <div id="crgroup-section">
                                             <label for="crgroup" class="block text-sm font-medium text-gray-700 mb-1">If so, what's the name of your Celebrate Recovery group?</label>
-                                            <input type="text" id="crgroup" name="crgroup" class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none focus:border-orange-500" placeholder="PBC">
+                                            <input type="text" id="crgroup" name="crgroup" class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none focus:border-orange-500" placeholder="RBC">
                                         </div>
                                         <div>
                                             <label for="crstart" class="block text-sm font-medium text-gray-700 mb-1">Are you interested in starting a Celebrate Recovery group?</label>
@@ -418,7 +418,7 @@
                                         </div>
                                         
                                         <div>
-                                            <label for="sponsor" class="block text-sm font-medium text-gray-700 mb-1">Would you be willing to sponsor someone? ( Conference costs KSH 1000 <span id="usd-equivalent" class="text-orange-500 font-semibold"> / USD 7.45</span>)</label>
+                                            <label for="sponsor" class="block text-sm font-medium text-gray-700 mb-1">Would you be willing to sponsor someone? ( Conference costs KSH 1000 <span id="usd-equivalent" class="text-orange-500 font-semibold"> / USD 7.75</span>)</label>
                                             <select id="sponsor" name="sponsor" class="w-full px-4 py-3 border border-gray-300 rounded-lg input-focus focus:outline-none focus:border-orange-500">
                                                 <option value="" disabled selected>Choose One</option>
                                                 <option value="Yes">Yes</option>
@@ -576,16 +576,6 @@
             crGroupSection.classList.add('hidden');
         }
     });
-
-    // Show/hide sponsor number field based on selection
-    // document.getElementById('sponsor').addEventListener('change', function() {
-    //     const numSection = document.getElementById('num-section');
-    //     if (this.value === 'Yes') {
-    //         numSection.classList.remove('hidden');
-    //     } else {
-    //         numSection.classList.add('hidden');
-    //     }
-    // });
 
     document.getElementById('sponsor').addEventListener('change', function() {
     const numSection = document.getElementById('num-section');

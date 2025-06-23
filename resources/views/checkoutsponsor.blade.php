@@ -101,12 +101,13 @@
               
 
                     <div class="mt-6 p-8 rounded-lg sm:mt-8 lg:flex lg:items-start lg:gap-12">
-                      <form action="{{ route('payment.sponsor') }}" method="POST" class="w-full rounded-lg border border-gray-200 bg-white p-4 shadow-lg dark:border-gray-700 dark:bg-gray-800 sm:p-6 lg:max-w-xl lg:p-8">
+                      <form action="{{ route('payment') }}" method="POST" class="w-full rounded-lg border border-gray-200 bg-white p-4 shadow-lg dark:border-gray-700 dark:bg-gray-800 sm:p-6 lg:max-w-xl lg:p-8">
                       {{-- <form action="{{ route('payment') }}" method="POST" class="w-full rounded-lg border border-gray-200 bg-white p-4 shadow-lg dark:border-gray-700 dark:bg-gray-800 sm:p-6 lg:max-w-xl lg:p-8"> --}}
                         @csrf
                         <div class="mb-6 gap-4 px-6 py-2">
 
                             <input type="hidden" name="uuid" value="{{ $uuid }}">
+                            <input type="hidden" name="price" value="{{ $total }}">
 
                             <div id="toast-success" class="flex items-center w-full p-4 mb-4 text-gray-900 bg-green-400 rounded-lg shadow-lg dark:text-gray-400 dark:bg-gray-800" role="alert">
                                 <div class="inline-flex items-center justify-center shrink-0 w-8 h-8 text-green-500 bg-white rounded-lg dark:bg-green-800 dark:text-green-200">
@@ -158,14 +159,6 @@
                                    <br> or <br> <a class="text-blue-700" href="mailto:CRConference2025@ridgewaysbaptistchurch.org">CRConference2025@ridgewaysbaptistchurch.org</a>
                                 </p>
                         </div>
-
-                        <!-- Modal toggle -->
-                        <div class="py-2">
-                            <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="focus:outline-none text-gray-900 shadow-lg bg-green-400 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-3 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" type="button">
-                                Initiate Payment
-                            </button>
-                            
-                        </div>
               
                         <div class="flex justify-between">
                                 
@@ -177,22 +170,43 @@
                       <div class="mt-6 px-6 grow sm:mt-8 lg:mt-0">
                         <div class="space-y-4 rounded-lg shadow-lg border border-gray-300 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
                           <div class="space-y-2">
-                            <dl class="flex items-center justify-between gap-4">
-                              <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Price</dt>
-                              <dd class="text-base font-medium text-gray-900 dark:text-white">KES {{$ticket}}</dd>
-                            </dl>
-              
-                            <dl class="flex items-center justify-between gap-4">
-                              <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Sponsoring</dt>
-                              <dd class="text-base font-medium text-green-500">{{$sponsoring}}</dd>
-                            </dl>              
+                            <div class="flex flex-col">
+                                <dl class="flex items-center justify-between gap-4">
+                                    <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Price</dt>
+                                    <dd class="text-base font-medium text-gray-900 dark:text-white">KES {{$ticket}}</dd>
+                                </dl>
+                                <dl class="flex items-center justify-between gap-4">
+                                    <dt class="text-base font-normal text-gray-500 dark:text-gray-400"></dt>
+                                    <dd class="text-base font-medium text-gray-900 dark:text-white">USD {{$ticketUsd}}</dd>
+                                </dl>
+                            </div>  
+                            
+                            <div class="flex flex-col">
+                                <dl class="flex items-center justify-between gap-4">
+                                    <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Sponsoring</dt>
+                                    <dd class="text-base font-medium text-green-500">KES {{$sponsoring}}</dd>
+                                </dl>
+                                <dl class="flex items-center justify-between gap-4">
+                                    <dt class="text-base font-normal text-gray-500 dark:text-gray-400"></dt>
+                                    <dd class="text-base font-medium text-green-500">USD {{$sponsoringUsd}}</dd>
+                                </dl>
+                            </div>
 
                           </div>
               
-                          <dl class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
-                            <dt class="text-base font-bold text-gray-900 dark:text-white">Total</dt>
-                            <dd class="text-base font-bold text-gray-900 dark:text-white">KES {{$total}}</dd>
-                          </dl>
+                          <div class="flex flex-col border-t border-gray-200 pt-2 dark:border-gray-700">
+                            <dl class="flex items-center justify-between gap-4">
+                                <dt class="text-base font-bold text-gray-900 dark:text-white">Total</dt>
+                                <dd class="text-base font-bold text-gray-900 dark:text-white">KES {{$total}}</dd>
+                            </dl>
+                            <dl class="flex items-center justify-between gap-4">
+                                <dt class="text-base font-bold text-gray-900 dark:text-white"></dt>
+                                <dd class="text-base font-bold text-gray-900 dark:text-white">USD {{$totalUsd}}</dd>
+                            </dl>
+
+                            <p class="text-sm max-w-sm text-orange-500 dark:text-gray-400 my-3 text-center">
+                                If you are paying with PayPal or by credit card, please make note of your total shown here.
+                            </p>
                         </div>
               
                         <div class="mt-6 flex items-center pt-10 px-6 justify-center gap-8">
@@ -211,44 +225,7 @@
                 </div>
 
                 <!-- Main modal -->
-                <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                    <div class="relative p-4 w-full max-w-md max-h-full">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
-                            <!-- Modal header -->
-                            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
-                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                    Pay for your registration
-                                </h3>
-                                <button type="button" class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="authentication-modal">
-                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                                    </svg>
-                                    <span class="sr-only">Close modal</span>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="p-4 md:p-5">
-                                <form class="space-y-4"
-                                 {{-- action="/mpesa/initiate" method="POST" --}}
-                                 >
-                                    {{-- @csrf --}}
-                                    <div>
-                                        <label for="number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Number</label>
-                                        <input type="number" name="number" id="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="0712345678" required />
-                                    </div>
-                                    <div>
-                                        <label for="amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your amount</label>
-                                        <input type="amount" name="amount" id="amount" placeholder="1000" value="{{}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
-                                    </div>
-                                    
-                                    <button type="submit" class="focus:outline-none text-gray-900 shadow-lg bg-green-500 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-3 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Pay</button>
-                                    
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
+
               </section>
               
 

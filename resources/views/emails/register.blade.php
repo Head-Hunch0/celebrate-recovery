@@ -280,6 +280,15 @@
                 </a>
                 or call +254740285959.
             </div>
+
+            <!-- Payment CTA Button -->
+            <div style="text-align: center; margin-bottom: 24px;">
+                <a href="{{ config('app.url') }}checkout?uuid={{ $user['uuid'] }}&ticket={{ $user['ticket'] }}&ticketUsd={{ $user['ticketUsd'] }}&sponsoring={{ $user['sponsoring'] }}&sponsoringUsd={{ $user['sponsoringUsd'] }}&total={{ $user['total'] }}&totalUsd={{ $user['totalUsd'] }}" 
+                class="cta-button" 
+                style="background-color: #f97316; margin-bottom: 16px;">
+                    Complete Your Payment Now
+                </a>
+            </div>
             
             <!-- CTA Button -->
             <div style="text-align: center; margin-bottom: 32px;">

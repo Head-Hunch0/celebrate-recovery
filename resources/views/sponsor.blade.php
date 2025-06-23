@@ -63,8 +63,8 @@
     <main class="container mx-auto px-4 py-12 mb-12">
         <div class="max-w-4xl mx-auto">
             <div class="flex flex-col md:flex-row gap-8">
-                <!-- Sponsorship Benefits -->
-                <div class="md:w-1/3 bg-white p-6 rounded-xl shadow-md h-fit sticky top-6 border-t-4 border-faith-orange">
+                <!-- Sponsorship Benefits - Updated for mobile -->
+                <div class="w-full md:w-1/3 bg-white p-6 rounded-xl shadow-md border-t-4 border-faith-orange md:sticky md:top-6 md:h-fit">
                     <h2 class="text-xl font-bold text-dark-orange mb-4">Freedom in Christ</h2>
                     <ul class="space-y-4">
                         <li class="flex items-start">
@@ -93,7 +93,6 @@
                         </li>
                     </ul>
                     
-
                     <div class="mt-8 bg-orange-50 p-4 rounded-lg border border-orange-200">
                         <h3 class="font-semibold text-dark-orange mb-2">Sponsorship Levels</h3>
                         <div class="space-y-3">
@@ -124,12 +123,11 @@
                             <label for="prayer-commitment" class="text-sm">Yes, I will pray faithfully</label>
                         </div>
                     </div>
-                    
                 </div>
 
-                <!-- Sponsorship Form -->
-                <div class="md:w-2/3 bg-white p-8 rounded-xl shadow-md border-t-4 border-faith-orange">
-                    <div class="text-center mb-8">
+                <!-- Sponsorship Form - Width adjusted for consistency -->
+                <div class="w-full md:w-2/3 bg-white p-6 md:p-8 rounded-xl shadow-md border-t-4 border-faith-orange">
+                    <div class="text-center mb-6 md:mb-8">
                         <h2 class="text-2xl font-bold text-dark-orange">Become a Restoration Partner</h2>
                         <p class="text-gray-600 mt-2">Your sponsorship helps bring Christ's healing to broken lives</p>
                     </div>
@@ -210,8 +208,6 @@
             </div>
         </div>
     </main>
-
-    <!-- Testimonials -->
 
     <!-- Final Call to Action -->
     <div class="bg-dark-orange text-white py-8">

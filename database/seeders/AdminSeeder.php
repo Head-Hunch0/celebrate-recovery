@@ -21,6 +21,7 @@ class AdminSeeder extends Seeder
         'wendykinyanjui@gmail.com',
         'dshikuta@gmail.com',
         'jeremywahuria@gmail.com',
+        'jamesgithaiga02@gmail.com'
     ];
 
 

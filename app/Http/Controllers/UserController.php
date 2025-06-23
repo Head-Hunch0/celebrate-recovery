@@ -75,24 +75,31 @@ class UserController extends Controller
             'email' => $user->email,
             'uuid' => $user->uuid,
             'phone' => $user->phone_number,
+            'ticket' => '1000',
+            'ticketUsd' => '7.75',
+            'sponsoring' => $user->willing_to_sponsor * 1000,
+            'sponsoringUsd' => $user->willing_to_sponsor * 7.75,
+            'total' => 1000 + ($user->willing_to_sponsor * 1000),
+            'totalUsd' => 7.75 + ($user->willing_to_sponsor * 7.75),
         ];
-
-
-        Log::info('User created', $user->toArray());
 
         // Send confirmation email
         Mail::to($request->email)->send(new RegistrationEmail($userData));
         // Log the user in
         $ticket = '1000';
+        $ticketUsd = '7.75';
         $uuid = $user->uuid;
         $sponsoring = $user->willing_to_sponsor * $ticket;
+        $sponsoringUsd = $user->willing_to_sponsor * $ticketUsd;
         $total = $ticket + $sponsoring;
+        $totalUsd = $ticketUsd + $sponsoringUsd;
 
         // dd($total, $sponsoring, $ticket, $uuid);
 
         // return view('checkout')->with('message', 'Registration successful! Please check your email for verification.');
-        return view('checkout', compact('ticket', 'total', 'uuid', 'sponsoring',))->with('message', 'Registration successful! Please check your email for verification.');
+        return view('checkout', compact('ticket', 'total', 'uuid', 'sponsoring','totalUsd','ticketUsd','sponsoringUsd'))->with('message', 'Registration successful! Please check your email for verification.');
     }
+
     public function registersponsor(Request $request)
     {
 
@@ -157,14 +164,17 @@ class UserController extends Controller
         // Mail::to($request->email)->send(new RegistrationEmail($userData));
         // Log the user in
         $ticket = '1000';
+        $ticketUsd = '7.75';
         $uuid = $user->uuid;
         $sponsoring = $user->willing_to_sponsor * $ticket;
+        $sponsoringUsd = $user->willing_to_sponsor * $ticketUsd;
         $total = $ticket + $sponsoring;
+        $totalUsd = $ticketUsd + $sponsoringUsd;
 
         // dd($total, $sponsoring, $ticket, $uuid);
 
         // return view('checkout')->with('message', 'Registration successful! Please check your email for verification.');
-        return view('checkoutsponsor', compact('ticket', 'total', 'uuid', 'sponsoring',))->with('message', 'Registration successful! Please check your email for verification.');
+        return view('checkoutsponsor', compact('ticket', 'total', 'uuid', 'sponsoring', 'totalUsd', 'ticketUsd', 'sponsoringUsd'))->with('message', 'Registration successful! Please check your email for verification.');
     }
 
     public function login(){

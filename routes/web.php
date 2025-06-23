@@ -21,11 +21,8 @@ Route::post('/registersponsor', [UserController::class, 'registersponsor'])->nam
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/signin', [UserController::class, 'signin'])->name('signin');
 Route::get('/email', [UserController::class, 'email'])->name('email');
+Route::get('/confirm', [TicketsController::class, 'confirm'])->name('confirm');
 
-
-Route::get('/test-mpesa', function (MpesaService $service) {
-    dd(method_exists($service, 'initiateSTKPush'));
-});
 
 Route::prefix('payment')->group(function () {
     // Show payment form
