@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\PasswordResetEmail;
 use App\Mail\RegistrationEmail;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\URL;
 // use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Validator;
@@ -180,6 +182,71 @@ class UserController extends Controller
     public function login(){
         return view('login');
     }
+
+    public function forgotpassword()
+    {
+        return view('resetpassword');
+    }
+
+    public function sendResetLink(Request $request)
+    {
+        Log::info('Password reset request received for email: ' . $request->email);
+        $request->validate(['email' => 'required|email']);
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            // Explicit error for unregistered emails
+            return back()->with('status', 'This email is not registered in our system.');
+        }
+
+        // Generate and send reset link
+        $resetUrl = URL::temporarySignedRoute(
+            'password.reset',
+            now()->addMinutes(60),
+            ['email' => $user->email]
+        );
+
+        Mail::to($user->email)->send(new PasswordResetEmail($user, $resetUrl));
+
+        // Clear success message
+        return back()->with('status', 'Password reset link has been sent to your email!');
+    }
+
+
+    public function showResetForm(Request $request)
+    {
+        // Automatically validates the signed URL
+        if (!$request->hasValidSignature()) {
+            abort(403, 'Invalid or expired link');
+        }
+
+        return view('updatepass', [
+            'email' => $request->email
+        ]);
+    }
+
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|confirmed|min:8' // Ensures password matches confirmation
+        ]);
+
+        $user = User::where('email', $request->email)->firstOrFail();
+
+        $user->forceFill([
+            'password' => Hash::make($request->password),
+            'passwordchanged' => true, // Critical: Must match your login check
+        ])->save();
+
+        // Manually log the user in immediately after reset
+        Auth::login($user);
+
+        return redirect()->route('admin.index')->with('success', 'Password updated and logged in!');
+    }
+
 
     public function signin(Request $request)
     {

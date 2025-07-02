@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>CR - Tickets - Registered </title>
+    <!-- Favicon (logo on browser tab) -->
+    <link rel="icon" href="{{ asset('images/CRLogo.png') }}" type="image/png">
 </head>
 <body>
 

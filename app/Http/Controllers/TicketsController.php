@@ -104,9 +104,7 @@ class TicketsController extends Controller
         Log::info('Payment request data:', $request->all());
         // Validate the request data
         $validated = $request->validate([
-            'confirmation' => 'required',
             'price' => 'required|numeric',
-            // 'confirmation' => 'required|regex:/^[A-Z0-9]{10}$/|size:10',
         ]);
 
 
@@ -174,13 +172,10 @@ class TicketsController extends Controller
         Log::info('User created', $user->toArray());
 
         // Send confirmation email
-        Mail::to($user->email)->send(new TicketEmail($userData));
+        // Mail::to($user->email)->send(new TicketEmail($userData));
 
         return view('confirm');
 
-        // return redirect()->route('ticket', ['id' => $ticket])
-        //     ->with('message', 'Payment successful!')
-        //     ->with(['ticket' => $ticket]);
     }
 
     public function paymentsponsor(Request $request)
@@ -188,8 +183,7 @@ class TicketsController extends Controller
         Log::info('Payment request data:', $request->all());
         // Validate the request data
         $validated = $request->validate([
-            'confirmation' => 'required',
-            // 'confirmation' => 'required|regex:/^[A-Z0-9]{10}$/|size:10',
+            'price' => 'required|numeric',
         ]);
 
 

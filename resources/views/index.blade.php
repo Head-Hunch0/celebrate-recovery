@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celebrate Recovery - Healing Begins Here</title>
+    <!-- Favicon (logo on browser tab) -->
+    <link rel="icon" href="{{ asset('images/CRLogo.png') }}" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -86,6 +88,15 @@
                 <a href="/sponsor" class="inline-block bg-white text-orange-600 max-w-sm font-bold py-4 px-10 rounded-lg text-lg hover:bg-gray-100 transition duration-200 shadow-lg">
                     Sponsor a Participant
                 </a>
+
+                <div class="mt-6 max-w-md mx-auto text-white">
+                    <p class="inline-block bg-white text-orange-600 max-w-sm font-bold py-4 px-10 rounded-lg text-sm hover:bg-gray-100 transition duration-200 shadow-lg">
+                        Already registered ? Please review your registration email and click the "Complete Your Payment Now" link to make your .
+                    </p>
+                    <p></p>
+                </div>
+        
+
         </div>
     </section>
 

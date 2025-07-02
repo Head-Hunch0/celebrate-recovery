@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_green.min.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CR - Communication - Schedule </title>
+    <!-- Favicon (logo on browser tab) -->
+    <link rel="icon" href="{{ asset('images/CRLogo.png') }}" type="image/png">
 </head>
 <body>
 

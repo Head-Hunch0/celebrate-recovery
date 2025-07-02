@@ -22,6 +22,10 @@ Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/signin', [UserController::class, 'signin'])->name('signin');
 Route::get('/email', [UserController::class, 'email'])->name('email');
 Route::get('/confirm', [TicketsController::class, 'confirm'])->name('confirm');
+Route::get('/forgotpassword', [UserController::class, 'forgotpassword'])->name('forgotpassword');
+Route::post('/passwordemail', [UserController::class, 'sendResetLink'])->name('password.email');
+Route::get('/reset-password', [UserController::class, 'showResetForm'])->name('password.reset');
+Route::post('/update-password', [UserController::class, 'updatePassword'])->name('password.update');
 
 
 Route::prefix('payment')->group(function () {

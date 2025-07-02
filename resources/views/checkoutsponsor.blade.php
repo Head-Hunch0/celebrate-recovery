@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_green.min.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CheckOut </title>
+    <!-- Favicon (logo on browser tab) -->
+    <link rel="icon" href="{{ asset('images/CRLogo.png') }}" type="image/png">
 </head>
 <body>
     <style>
@@ -85,7 +87,7 @@
             <section class="bg-white py-8 rounded-xl shadow-lg antialiased dark:bg-gray-900 md:py-16">
                 <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
                   <div class="mx-auto max-w-5xl">
-                    <div class="flex align-items-end justify-content-end">
+                    <div class="flex align-items-end px-8 justify-content-end">
                         
                         <div id="toast-success" class="flex items-center w-full max-w-md p-4 mb-4 text-gray-500 bg-white rounded-lg shadow-lg dark:text-gray-400 dark:bg-gray-800" role="alert">
                             <div class="inline-flex items-center justify-center shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
@@ -160,9 +162,7 @@
                                 </p>
                         </div>
               
-                        <div class="flex justify-between">
-                                
-                            <input type="text" name="confirmation" id="confirmation" class="bg-gray-50 max-w-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  placeholder="MPESA CODE" >
+                        <div class="flex justify-center items-center">
                             <button type="submit" class="focus:outline-none text-gray-900 shadow-lg bg-green-400 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-3 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Confirm</button>
                         </div>
                       </form>

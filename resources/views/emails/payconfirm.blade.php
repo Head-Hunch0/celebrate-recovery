@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Celebrate Recovery - Ticket Confirmation</title>
+    <!-- Favicon (logo on browser tab) -->
+    <link rel="icon" href="{{ asset('images/CRLogo.png') }}" type="image/png">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style type="text/css">
