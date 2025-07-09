@@ -5,7 +5,6 @@ use App\Http\Controllers\CommunicationController;
 use App\Http\Controllers\MpesaController;
 use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\UserController;
-use App\Services\MpesaService;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AdminController::class, 'index'])->name('index');
@@ -28,20 +27,6 @@ Route::get('/reset-password', [UserController::class, 'showResetForm'])->name('p
 Route::post('/update-password', [UserController::class, 'updatePassword'])->name('password.update');
 
 
-Route::prefix('payment')->group(function () {
-    // Show payment form
-    Route::get('/payment', [MpesaController::class, 'showPaymentForm'])->name('mpesa.payment');
-
-    // Initiate STK Push
-    Route::post('/initiate', [MpesaController::class, 'initiatePayment'])->name('mpesa.initiate');
-
-    // Check payment status
-    Route::get('/status', [MpesaController::class, 'checkStatus'])->name('mpesa.status');
-
-    // Callback URL (must remain POST)
-    Route::post('/callback', [MpesaController::class, 'handleCallback']);
-});
-
 Route::post('/purchase', [TicketsController::class, 'payment'])->name('payment');
 Route::post('/purchase/sponsor', [TicketsController::class, 'paymentsponsor'])->name('payment.sponsor');
 
@@ -52,11 +37,15 @@ Route::get('/passconfirm', [UserController::class, 'passconfirm'])->name('passco
     // Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::get('/tickets', [TicketsController::class, 'ticketsscan'])->name('admin.tickets');
     Route::post('/tickets/verify', [TicketsController::class, 'verify']);
-    Route::get('/', [TicketsController::class, 'index'])->name('admin.index');
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/registered-tickets', [TicketsController::class, 'registered'])->name('admin.registered-tickets');
     Route::get('/confirmed-tickets', [TicketsController::class, 'confirmed'])->name('admin.confirmed-tickets');
     Route::get('/sponsoring-tickets', [TicketsController::class, 'sponsoring'])->name('admin.sponsoring-tickets');
     Route::get('/sponsored-tickets', [TicketsController::class, 'sponsored'])->name('admin.sponsored-tickets');
+
+    // payment routes 
+    Route::post('/register-pay', [AdminController::class, 'registerPay'])->name('admin.register-pay');
+
 
     Route::prefix('/website')->group(function () {
     Route::get('/schedule', [AdminController::class, 'schedule'])->name('admin.website.schedule');

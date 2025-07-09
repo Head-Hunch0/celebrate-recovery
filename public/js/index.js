@@ -281,3 +281,9 @@ function updateTable(tickets) {
     }
 }
 
+function setModalData(id, fullName, paymentMethod, paymentStatus) {
+    document.getElementById("ticketId").value = id;
+    document.getElementById("full_name").value = fullName;
+    document.getElementById("payment_method").value = paymentMethod;
+    document.getElementById("payment_status").value = paymentStatus;
+}

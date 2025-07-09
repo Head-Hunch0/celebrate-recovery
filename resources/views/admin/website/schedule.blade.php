@@ -108,78 +108,120 @@
                                                <label class="sr-only">
                                                Pick a time
                                                </label>
-                                               <ul id="timetable" class="grid w-full grid-cols-2 gap-2 mt-5">
+                                              <ul id="timetable" class="grid w-full grid-cols-2 gap-2 mt-5">
+                                                <!-- Morning Times -->
                                                 <li>
-                                                  <input type="radio" id="10-am" value="10:00 AM" class="hidden peer" name="timetable">
-                                                  <label for="10-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    10:00 AM
-                                                  </label>
+                                                    <input type="radio" id="6-am" value="06:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="6-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        6:00 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="10-30-am" value="10:30 AM" class="hidden peer" name="timetable">
-                                                  <label for="10-30-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    10:30 AM
-                                                  </label>
+                                                    <input type="radio" id="6-30-am" value="06:30 AM" class="hidden peer" name="timetable">
+                                                    <label for="6-30-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        6:30 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="11-am" value="11:00 AM" class="hidden peer" name="timetable">
-                                                  <label for="11-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    11:00 AM
-                                                  </label>
+                                                    <input type="radio" id="7-am" value="07:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="7-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        7:00 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="11-30-am" value="11:30 AM" class="hidden peer" name="timetable">
-                                                  <label for="11-30-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    11:30 AM
-                                                  </label>
+                                                    <input type="radio" id="7-30-am" value="07:30 AM" class="hidden peer" name="timetable">
+                                                    <label for="7-30-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        7:30 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="12-am" value="12:00 PM" class="hidden peer" name="timetable">
-                                                  <label for="12-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    12:00 PM
-                                                  </label>
+                                                    <input type="radio" id="8-am" value="08:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="8-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        8:00 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="12-30-pm" value="12:30 PM" class="hidden peer" name="timetable">
-                                                  <label for="12-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    12:30 PM
-                                                  </label>
+                                                    <input type="radio" id="8-30-am" value="08:30 AM" class="hidden peer" name="timetable">
+                                                    <label for="8-30-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        8:30 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="1-pm" value="01:00 PM" class="hidden peer" name="timetable">
-                                                  <label for="1-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    01:00 PM
-                                                  </label>
+                                                    <input type="radio" id="9-am" value="09:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="9-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        9:00 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="1-30-pm" value="01:30 PM" class="hidden peer" name="timetable">
-                                                  <label for="1-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    01:30 PM
-                                                  </label>
+                                                    <input type="radio" id="9-30-am" value="09:30 AM" class="hidden peer" name="timetable">
+                                                    <label for="9-30-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        9:30 AM
+                                                    </label>
+                                                </li>
+                                                
+                                                <!-- Your existing times (10:00 AM - 3:30 PM) -->
+                                                <li>
+                                                    <input type="radio" id="10-am" value="10:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="10-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        10:00 AM
+                                                    </label>
+                                                </li>
+                                                <!-- ... keep all your existing time slots ... -->
+                                                
+                                                <!-- Afternoon/Evening Times -->
+                                                <li>
+                                                    <input type="radio" id="4-pm" value="04:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="4-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        4:00 PM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="2-pm" value="02:00 PM" class="hidden peer" name="timetable">
-                                                  <label for="2-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    02:00 PM
-                                                  </label>
+                                                    <input type="radio" id="4-30-pm" value="04:30 PM" class="hidden peer" name="timetable">
+                                                    <label for="4-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        4:30 PM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="2-30-pm" value="02:30 PM" class="hidden peer" name="timetable">
-                                                  <label for="2-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    02:30 PM
-                                                  </label>
+                                                    <input type="radio" id="5-pm" value="05:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="5-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        5:00 PM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="3-pm" value="03:00 PM" class="hidden peer" name="timetable">
-                                                  <label for="3-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    03:00 PM
-                                                  </label>
+                                                    <input type="radio" id="5-30-pm" value="05:30 PM" class="hidden peer" name="timetable">
+                                                    <label for="5-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        5:30 PM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="3-30-pm" value="03:30 PM" class="hidden peer" name="timetable">
-                                                  <label for="3-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    03:30 PM
-                                                  </label>
+                                                    <input type="radio" id="6-pm" value="06:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="6-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        6:00 PM
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" id="6-30-pm" value="06:30 PM" class="hidden peer" name="timetable">
+                                                    <label for="6-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        6:30 PM
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" id="7-pm" value="07:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="7-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        7:00 PM
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" id="7-30-pm" value="07:30 PM" class="hidden peer" name="timetable">
+                                                    <label for="7-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        7:30 PM
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" id="8-pm" value="08:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="8-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        8:00 PM
+                                                    </label>
                                                 </li>
                                               </ul>
                                               
@@ -274,79 +316,121 @@
                                                Pick a time
                                                </label>
                                                <ul id="timetable" class="grid w-full grid-cols-2 gap-2 mt-5">
+                                                <!-- Morning Times -->
                                                 <li>
-                                                  <input type="radio" id="10-am-1" value="10:00 AM" class="hidden peer" name="timetable1">
-                                                  <label for="10-am-1" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    10:00 AM
-                                                  </label>
+                                                    <input type="radio" id="6-am" value="06:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="6-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        6:00 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="10-30-am-1" value="10:30 AM" class="hidden peer" name="timetable1">
-                                                  <label for="10-30-am-1" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    10:30 AM
-                                                  </label>
+                                                    <input type="radio" id="6-30-am" value="06:30 AM" class="hidden peer" name="timetable">
+                                                    <label for="6-30-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        6:30 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="11-am-1" value="11:00 AM" class="hidden peer" name="timetable1">
-                                                  <label for="11-am-1" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    11:00 AM
-                                                  </label>
+                                                    <input type="radio" id="7-am" value="07:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="7-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        7:00 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="11-30-am-1" value="11:30 AM" class="hidden peer" name="timetable1">
-                                                  <label for="11-30-am-1" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    11:30 AM
-                                                  </label>
+                                                    <input type="radio" id="7-30-am" value="07:30 AM" class="hidden peer" name="timetable">
+                                                    <label for="7-30-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        7:30 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="12-am-1" value="12:00 PM" class="hidden peer" name="timetable1">
-                                                  <label for="12-am-1" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    12:00 PM
-                                                  </label>
+                                                    <input type="radio" id="8-am" value="08:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="8-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        8:00 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="12-30-pm-1" value="12:30 PM" class="hidden peer" name="timetable1">
-                                                  <label for="12-30-pm-1" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    12:30 PM
-                                                  </label>
+                                                    <input type="radio" id="8-30-am" value="08:30 AM" class="hidden peer" name="timetable">
+                                                    <label for="8-30-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        8:30 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="1-pm-1" value="01:00 PM" class="hidden peer" name="timetable1">
-                                                  <label for="1-pm-1" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    01:00 PM
-                                                  </label>
+                                                    <input type="radio" id="9-am" value="09:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="9-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        9:00 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="1-30-pm-1" value="01:30 PM" class="hidden peer" name="timetable1">
-                                                  <label for="1-30-pm-1" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    01:30 PM
-                                                  </label>
+                                                    <input type="radio" id="9-30-am" value="09:30 AM" class="hidden peer" name="timetable">
+                                                    <label for="9-30-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        9:30 AM
+                                                    </label>
+                                                </li>
+                                                
+                                                <!-- Your existing times (10:00 AM - 3:30 PM) -->
+                                                <li>
+                                                    <input type="radio" id="10-am" value="10:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="10-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        10:00 AM
+                                                    </label>
+                                                </li>
+                                                <!-- ... keep all your existing time slots ... -->
+                                                
+                                                <!-- Afternoon/Evening Times -->
+                                                <li>
+                                                    <input type="radio" id="4-pm" value="04:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="4-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        4:00 PM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="2-pm-1" value="02:00 PM" class="hidden peer" name="timetable1">
-                                                  <label for="2-pm-1" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    02:00 PM
-                                                  </label>
+                                                    <input type="radio" id="4-30-pm" value="04:30 PM" class="hidden peer" name="timetable">
+                                                    <label for="4-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        4:30 PM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="2-30-pm-1" value="02:30 PM" class="hidden peer" name="timetable1">
-                                                  <label for="2-30-pm-1" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    02:30 PM
-                                                  </label>
+                                                    <input type="radio" id="5-pm" value="05:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="5-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        5:00 PM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="3-pm-1" value="03:00 PM" class="hidden peer" name="timetable1">
-                                                  <label for="3-pm-1" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    03:00 PM
-                                                  </label>
+                                                    <input type="radio" id="5-30-pm" value="05:30 PM" class="hidden peer" name="timetable">
+                                                    <label for="5-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        5:30 PM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="3-30-pm-1" value="03:30 PM" class="hidden peer" name="timetable1">
-                                                  <label for="3-30-pm-1" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    03:30 PM
-                                                  </label>
+                                                    <input type="radio" id="6-pm" value="06:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="6-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        6:00 PM
+                                                    </label>
                                                 </li>
-                                              </ul>
+                                                <li>
+                                                    <input type="radio" id="6-30-pm" value="06:30 PM" class="hidden peer" name="timetable">
+                                                    <label for="6-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        6:30 PM
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" id="7-pm" value="07:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="7-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        7:00 PM
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" id="7-30-pm" value="07:30 PM" class="hidden peer" name="timetable">
+                                                    <label for="7-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        7:30 PM
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" id="8-pm" value="08:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="8-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        8:00 PM
+                                                    </label>
+                                                </li>
+                                            </ul>
                                             </div>
                                         </div>
                                         
@@ -437,79 +521,121 @@
                                                Pick a time
                                                </label>
                                                <ul id="timetable" class="grid w-full grid-cols-2 gap-2 mt-5">
+                                                <!-- Morning Times -->
                                                 <li>
-                                                  <input type="radio" id="10-am-2" value="10:00 AM" class="hidden peer" name="timetable2">
-                                                  <label for="10-am-2" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    10:00 AM
-                                                  </label>
+                                                    <input type="radio" id="6-am" value="06:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="6-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        6:00 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="10-30-am-2" value="10:30 AM" class="hidden peer" name="timetable2">
-                                                  <label for="10-30-am-2" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    10:30 AM
-                                                  </label>
+                                                    <input type="radio" id="6-30-am" value="06:30 AM" class="hidden peer" name="timetable">
+                                                    <label for="6-30-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        6:30 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="11-am-2" value="11:00 AM" class="hidden peer" name="timetable2">
-                                                  <label for="11-am-2" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    11:00 AM
-                                                  </label>
+                                                    <input type="radio" id="7-am" value="07:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="7-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        7:00 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="11-30-am-2" value="11:30 AM" class="hidden peer" name="timetable2">
-                                                  <label for="11-30-am-2" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    11:30 AM
-                                                  </label>
+                                                    <input type="radio" id="7-30-am" value="07:30 AM" class="hidden peer" name="timetable">
+                                                    <label for="7-30-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        7:30 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="12-am-2" value="12:00 PM" class="hidden peer" name="timetable2">
-                                                  <label for="12-am-2" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    12:00 PM
-                                                  </label>
+                                                    <input type="radio" id="8-am" value="08:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="8-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        8:00 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="12-30-pm-2" value="12:30 PM" class="hidden peer" name="timetable2">
-                                                  <label for="12-30-pm-2" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    12:30 PM
-                                                  </label>
+                                                    <input type="radio" id="8-30-am" value="08:30 AM" class="hidden peer" name="timetable">
+                                                    <label for="8-30-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        8:30 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="1-pm-2" value="01:00 PM" class="hidden peer" name="timetable2">
-                                                  <label for="1-pm-2" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    01:00 PM
-                                                  </label>
+                                                    <input type="radio" id="9-am" value="09:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="9-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        9:00 AM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="1-30-pm-2" value="01:30 PM" class="hidden peer" name="timetable2">
-                                                  <label for="1-30-pm-2" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    01:30 PM
-                                                  </label>
+                                                    <input type="radio" id="9-30-am" value="09:30 AM" class="hidden peer" name="timetable">
+                                                    <label for="9-30-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        9:30 AM
+                                                    </label>
+                                                </li>
+                                                
+                                                <!-- Your existing times (10:00 AM - 3:30 PM) -->
+                                                <li>
+                                                    <input type="radio" id="10-am" value="10:00 AM" class="hidden peer" name="timetable">
+                                                    <label for="10-am" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        10:00 AM
+                                                    </label>
+                                                </li>
+                                                <!-- ... keep all your existing time slots ... -->
+                                                
+                                                <!-- Afternoon/Evening Times -->
+                                                <li>
+                                                    <input type="radio" id="4-pm" value="04:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="4-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        4:00 PM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="2-pm-2" value="02:00 PM" class="hidden peer" name="timetable2">
-                                                  <label for="2-pm-2" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    02:00 PM
-                                                  </label>
+                                                    <input type="radio" id="4-30-pm" value="04:30 PM" class="hidden peer" name="timetable">
+                                                    <label for="4-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        4:30 PM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="2-30-pm-2" value="02:30 PM" class="hidden peer" name="timetable2">
-                                                  <label for="2-30-pm-2" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    02:30 PM
-                                                  </label>
+                                                    <input type="radio" id="5-pm" value="05:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="5-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        5:00 PM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="3-pm-2" value="03:00 PM" class="hidden peer" name="timetable2">
-                                                  <label for="3-pm-2" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    03:00 PM
-                                                  </label>
+                                                    <input type="radio" id="5-30-pm" value="05:30 PM" class="hidden peer" name="timetable">
+                                                    <label for="5-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        5:30 PM
+                                                    </label>
                                                 </li>
                                                 <li>
-                                                  <input type="radio" id="3-30-pm-2" value="03:30 PM" class="hidden peer" name="timetable2">
-                                                  <label for="3-30-pm-2" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
-                                                    03:30 PM
-                                                  </label>
+                                                    <input type="radio" id="6-pm" value="06:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="6-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        6:00 PM
+                                                    </label>
                                                 </li>
-                                              </ul>
+                                                <li>
+                                                    <input type="radio" id="6-30-pm" value="06:30 PM" class="hidden peer" name="timetable">
+                                                    <label for="6-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        6:30 PM
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" id="7-pm" value="07:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="7-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        7:00 PM
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" id="7-30-pm" value="07:30 PM" class="hidden peer" name="timetable">
+                                                    <label for="7-30-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        7:30 PM
+                                                    </label>
+                                                </li>
+                                                <li>
+                                                    <input type="radio" id="8-pm" value="08:00 PM" class="hidden peer" name="timetable">
+                                                    <label for="8-pm" class="inline-flex items-center justify-center w-full p-2 text-sm font-medium text-center bg-white border rounded-lg cursor-pointer text-orange-600 border-orange-600 hover:bg-orange-500 peer-checked:text-white peer-checked:bg-orange-600 peer-checked:border-orange-600">
+                                                        8:00 PM
+                                                    </label>
+                                                </li>
+                                            </ul>
                                             </div>
                                         </div>
                                         

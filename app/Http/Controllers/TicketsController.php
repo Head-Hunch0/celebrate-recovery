@@ -58,6 +58,7 @@ class TicketsController extends Controller
         $tickets = [];
         // Fetch all registered tickets from the database
         $tickets = User::get();
+
         // Return the view with the tickets data
         return view('admin.tickets.registered-tickets', compact('tickets'));
     }
@@ -69,16 +70,18 @@ class TicketsController extends Controller
     {
         //
         // Fetch all confirmed tickets from the database
-        $tickets = Tickets::where('status', 'confirmed')->get();
+        $tickets = Tickets::where('payment_status', 'completed')->get();
 
         // add the name, email, and phone of the user who registered the ticket
         foreach ($tickets as $key) {
-            $key['name'] = User::where('id', $key->userID)->first()->firstname . ' ' . User::where('id', $key->userID)->first()->lastname;
+            $key['name'] = User::where('id', $key->userID)->first()->full_name;
             $key['email'] = User::where('id', $key->userID)->first()->email;
-            $key['phone'] = User::where('id', $key->userID)->first()->phone;
+            $key['phone'] = User::where('id', $key->userID)->first()->phone_number;
         }
 
         // Return the view with the tickets data
+
+        // dd($tickets->toArray());
         return view('admin.tickets.confirmed-tickets', compact('tickets'));
     }
 
@@ -90,9 +93,9 @@ class TicketsController extends Controller
 
         // add the name, email, and phone of the user who registered the ticket
         foreach ($tickets as $key) {
-            $key['name'] = User::where('id', $key->userID)->first()->firstname . ' ' . User::where('id', $key->userID)->first()->lastname;
+            $key['name'] = User::where('id', $key->userID)->first()->full_name;
             $key['email'] = User::where('id', $key->userID)->first()->email;
-            $key['phone'] = User::where('id', $key->userID)->first()->phone;
+            $key['phone'] = User::where('id', $key->userID)->first()->phone_number;
         }
 
         // Return the view with the tickets data
@@ -119,7 +122,7 @@ class TicketsController extends Controller
         }
         Log::info('User data:', $user->toArray());
         $ticket = Tickets::create([
-            'userID' => $validated['userID'] ?? null,
+            'userID' => $user['id'],
             'ticket_type' => $validated['ticket_type'],
             'price' => $validated['price'],
             'quantity' => $validated['quantity'] ?? 1,
@@ -127,8 +130,7 @@ class TicketsController extends Controller
 
             'status' => 'confirmed',
             'payment_method' => 'mpesa', // Assuming payment method is mpesa for this example
-            // 'payment_method' => $validated['payment_method'],
-            'payment_status' => 'completed',
+            'payment_status' => 'pending',
             'payment_reference' => $validated['payment_reference'] ?? null,
             'payment_amount' => $validated['price'],
             'currency' => 'KES',
@@ -188,8 +190,7 @@ class TicketsController extends Controller
 
 
         Log::info('Validated data:', $validated);
-        // Process the payment here
-        // ...
+
 
         $user = User::where('uuid', $request->uuid)->firstOrFail();
         if ($user->willing_to_sponsor !== 0) {
@@ -198,7 +199,7 @@ class TicketsController extends Controller
         }
         Log::info('User data:', $user->toArray());
         $ticket = Tickets::create([
-            'userID' => $validated['userID'] ?? null,
+            'userID' => $user['id'],
             'ticket_type' => $validated['ticket_type'],
             'price' => $validated['price'],
             'quantity' => $validated['quantity'] ?? 1,
@@ -207,7 +208,7 @@ class TicketsController extends Controller
             'status' => 'confirmed',
             'payment_method' => 'mpesa', // Assuming payment method is mpesa for this example
             // 'payment_method' => $validated['payment_method'],
-            'payment_status' => 'completed',
+            'payment_status' => 'pending',
             'payment_reference' => $validated['payment_reference'] ?? null,
             'payment_amount' => $validated['price'],
             'currency' => 'KES',

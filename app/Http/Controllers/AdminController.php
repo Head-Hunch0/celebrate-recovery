@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RegistrationEmail;
+use App\Mail\TicketEmail;
 use App\Models\Schedule;
 use App\Models\Speaker;
 use App\Models\SpeakerToggle;
+use App\Models\Tickets;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class AdminController extends Controller
 {
@@ -15,12 +21,28 @@ class AdminController extends Controller
 
     public function index() {
 
-        $wed = Schedule::where('day', 'Wednesday')->get();
-        $thur = Schedule::where('day', 'Thursday')->get();
-        $fri = Schedule::where('day', 'Friday')->get();
-        $Schedule = Schedule::all();
+        // Get total registered users
+        $totalUsers = User::count();
 
-        return view('index', compact('Schedule', 'wed', 'thur', 'fri'));
+        // Get paid tickets count
+        $paidTickets = Tickets::where('payment_status', 'completed')->count();
+
+        // Get sponsoring users count
+        $sponsors = Tickets::where('ticket_type', 'sponsored')->count();
+
+        // Get pending payments
+        $pendingTickets = Tickets::where('payment_status', 'pending')->count();
+
+        // amounts 
+        $totalAmount = Tickets::sum('price');
+        $paidAmount = Tickets::where('payment_status', 'completed')->sum('price');
+        $pendingAmount = Tickets::where('payment_status', 'pending')->sum('price');
+        $sponsoringAmount = Tickets::where('ticket_type', 'sponsored')->sum('price');
+        
+        // dd($totalUsers, $paidTickets, $sponsors, $pendingTickets);
+
+        return view('admin.index', compact('totalUsers', 'paidTickets', 'sponsors', 'pendingTickets',
+            'totalAmount', 'paidAmount', 'pendingAmount', 'sponsoringAmount'));
     }
 
     public function schedule()  {
@@ -128,7 +150,7 @@ class AdminController extends Controller
     public function speakerToggle(Request $request)
     {
         Log::info('Speaker toggle request received', $request->all());
-        // Validate the request
+
         // Convert checkbox value to boolean
         $showSpeakers = $request->has('show_speakers'); // Returns true if "on", false if not present
 
@@ -143,5 +165,56 @@ class AdminController extends Controller
         return redirect()->route('admin.website.speaker')
             ->with('message', 'Speakers visibility ' . ($showSpeakers ? 'enabled' : 'disabled') . ' successfully!');
         
+    }
+
+    public function registerPay(Request $request)
+    {
+        Log::info('Register pay request received', $request->all());
+        $validated = $request->validate([
+            'ticket_id' => 'required',
+            'payment_method' => 'required',
+            'payment_status' => 'required'
+        ]);
+
+        $ticket = Tickets::where('userID', $validated['ticket_id'])->firstOrFail();
+
+        Log::info($ticket);
+
+        $ticket->payment_method = $validated['payment_method'];
+        $ticket->payment_status = $validated['payment_status'];
+        $ticket->save();
+
+        $user = User::find($ticket->userID);
+
+
+        $userData = [
+            'name' => $user->full_name,
+            'email' => $user->email,
+            'uuid' => $user->uuid,
+            'ticket_type' => $ticket->ticket_type,
+            'price' => $ticket->price,
+            'phone' => $user->phone_number,
+            'sponsored' => $user->willing_to_sponsor,
+            'ticket_number' => $ticket->ticket_number, // Added for QR code reference
+
+        ];
+
+        Log::info($userData);
+        // Send confirmation email with try-catch
+        try {
+            Mail::to($user->email)->send(new TicketEmail($userData));
+
+            // Log successful email delivery
+            Log::info('Confirmation email sent successfully to: ' . $user->email);
+
+            return redirect()->back()->with('success', 'Ticket updated and confirmation email sent!');
+        } catch (\Exception $e) {
+            // Log the error
+            Log::error('Failed to send confirmation email: ' . $e->getMessage());
+
+            // Return with success for ticket update but warning about email
+            return redirect()->back()
+                ->with('warning', 'Ticket updated but email failed to send: ' . $e->getMessage());
+        }
     }
 }

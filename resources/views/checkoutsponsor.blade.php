@@ -103,8 +103,7 @@
               
 
                     <div class="mt-6 p-8 rounded-lg sm:mt-8 lg:flex lg:items-start lg:gap-12">
-                      <form action="{{ route('payment') }}" method="POST" class="w-full rounded-lg border border-gray-200 bg-white p-4 shadow-lg dark:border-gray-700 dark:bg-gray-800 sm:p-6 lg:max-w-xl lg:p-8">
-                      {{-- <form action="{{ route('payment') }}" method="POST" class="w-full rounded-lg border border-gray-200 bg-white p-4 shadow-lg dark:border-gray-700 dark:bg-gray-800 sm:p-6 lg:max-w-xl lg:p-8"> --}}
+                      <form action="{{ route('payment.sponsor') }}" method="POST" class="w-full rounded-lg border border-gray-200 bg-white p-4 shadow-lg dark:border-gray-700 dark:bg-gray-800 sm:p-6 lg:max-w-xl lg:p-8">
                         @csrf
                         <div class="mb-6 gap-4 px-6 py-2">
 

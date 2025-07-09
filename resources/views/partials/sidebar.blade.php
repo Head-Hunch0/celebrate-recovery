@@ -9,7 +9,7 @@
    <div class="overflow-y-auto py-8 px-3 h-full bg-white border-r border-gray-200 rounded-3xl dark:bg-gray-800 dark:border-gray-700">
        <ul class="space-y-6">
            <li>
-               <a href="/" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+               <a href="/admin" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                 <img class="w-12 h-12 p-1 rounded dark:ring-gray-500" src="{{asset('images/data-analysis.png')}}" alt="Bordered avatar">
                    <span class="ml-3">Overview</span>
                </a>

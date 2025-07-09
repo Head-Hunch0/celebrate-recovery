@@ -284,6 +284,75 @@
                 "Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!"
                 <span class="verse-reference">— 2 Corinthians 5:17 (NIV)</span>
             </div>
+
+
+            <!-- Add this section where you want the ticket to appear in your email -->
+            <div class="ticket-card" style="background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; margin-bottom: 24px;">
+                <h3 style="text-align: center; font-weight: 600; margin-top: 0; margin-bottom: 20px; color: #1f2937;">Your Digital Ticket</h3>
+                
+                <!-- Ticket Header -->
+                <div style="background-color: #f97316; padding: 16px; border-radius: 6px 6px 0 0; color: white;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h2 style="font-size: 20px; font-weight: bold; margin: 0;">Celebrate Recovery</h2>
+                            <p style="margin: 4px 0 0; font-size: 14px; opacity: 0.9;">Finding Freedom in Christ</p>
+                        </div>
+                        <div style="background-color: white; color: #ea580c; padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: bold;">
+                            #{{ $user['ticket_number'] }}
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ticket Body -->
+                <div style="padding: 16px; background-color: #f8fafc; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 6px 6px;">
+                    <!-- QR Code Placeholder (actual QR would need to be generated server-side) -->
+                    <div style="text-align: center; margin: 16px 0;">
+                        <div style="display: inline-block; background-color: #ffedd5; padding: 16px; border-radius: 4px;">
+                            <!-- Ticket View Link -->
+                            <a href="{{ config('app.url') }}ticket/{{ $user['ticket_number'] }}" 
+                            style="display: inline-block; background-color: #ea580c; color: white; text-decoration: none; padding: 10px 20px; border-radius: 4px; font-weight: 600; margin-bottom: 10px;">
+                                View Your Digital Ticket
+                            </a>
+                            <p style="margin: 8px 0 0; font-size: 12px; color: #9a3412;">
+                                Click above to view your ticket with QR code
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Ticket Details -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+                        <div>
+                            <p style="margin: 0; font-size: 12px; color: #6b7280;">Name</p>
+                            <p style="margin: 4px 0 0; font-weight: 500;">{{ $user['name'] }}</p>
+                        </div>
+                        <div>
+                            <p style="margin: 0; font-size: 12px; color: #6b7280;">Ticket Type</p>
+                            <p style="margin: 4px 0 0; font-weight: 500;">{{ $user['ticket_type'] }}</p>
+                        </div>
+                        <div>
+                            <p style="margin: 0; font-size: 12px; color: #6b7280;">Date</p>
+                            <p style="margin: 4px 0 0; font-weight: 500;">August 12 - 15</p>
+                        </div>
+                        <div>
+                            <p style="margin: 0; font-size: 12px; color: #6b7280;">Time</p>
+                            <p style="margin: 4px 0 0; font-weight: 500;">8 AM - 5 PM</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Total -->
+                    <div style="border-top: 1px solid #e5e7eb; padding-top: 12px; margin-top: 8px;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="font-weight: bold;">Total Paid</span>
+                            <span style="font-weight: bold; color: #ea580c;">{{ $user['price'] }}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer Note -->
+                <p style="font-size: 11px; color: #6b7280; text-align: center; margin-top: 12px;">
+                    Present this ticket at registration. No print needed - digital version accepted.
+                </p>
+            </div>
             
             <!-- CTA Button -->
             <div class="cta-container">
