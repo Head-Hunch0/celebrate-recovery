@@ -21,6 +21,17 @@ class AdminController extends Controller
 
     public function index() {
 
+        $Schedule = Schedule::all();
+
+        $wed = Schedule::where('day', 'Wednesday')->get();
+        $thur = Schedule::where('day', 'Thursday')->get();
+        $fri = Schedule::where('day', 'Friday')->get();
+        $Schedule = Schedule::all();
+
+        return view('index', compact('Schedule', 'wed', 'thur', 'fri'));
+    }
+    public function indexadmin() {
+
         // Get total registered users
         $totalUsers = User::count();
 

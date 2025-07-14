@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AdminController::class, 'index'])->name('index');
+Route::get('/admin/index', [AdminController::class, 'indexadmin'])->name('index.admin');
 
 Route::get('/ticket/{id}', [TicketsController::class, 'ticket'])->name('ticket');
 Route::get('/register', [TicketsController::class, 'show'])->name('register');

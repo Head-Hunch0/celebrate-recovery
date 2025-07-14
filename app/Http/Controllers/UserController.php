@@ -244,7 +244,6 @@ class UserController extends Controller
         // Manually log the user in immediately after reset
         Auth::login($user);
 
-        return redirect()->route('admin.index')->with('success', 'Password updated and logged in!');
     }
 
 
