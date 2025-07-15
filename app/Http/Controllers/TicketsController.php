@@ -85,6 +85,113 @@ class TicketsController extends Controller
         return view('admin.tickets.confirmed-tickets', compact('tickets'));
     }
 
+    public function downloadConfirmedTickets()
+    {
+        $tickets = Tickets::where('payment_status', 'completed')
+            ->with('user:id,full_name,email,phone_number') // Eager load user data
+            ->get();
+
+        $headers = [
+            "Content-type" => "text/csv",
+            "Content-Disposition" => "attachment; filename=confirmed_tickets_" . date('Y-m-d') . ".csv",
+            "Pragma" => "no-cache",
+            "Cache-Control" => "must-revalidate, post-check=0, pre-check=0",
+            "Expires" => "0"
+        ];
+
+        $callback = function () use ($tickets) {
+            $file = fopen('php://output', 'w');
+
+            // Add CSV headers
+            fputcsv($file, [
+                'Ticket ID',
+                'User Name',
+                'User Email',
+                'User Phone',
+                'Event',
+                'Ticket Type',
+                'Quantity',
+                'Amount Paid',
+                'Payment Date',
+                'Payment Method'
+            ]);
+
+            $event['name'] = "CelebrateRecovery@25";
+            // Add data rows
+            foreach ($tickets as $ticket) {
+                fputcsv($file, [
+                    $ticket->id,
+                    $ticket->user->full_name,
+                    $ticket->user->email,
+                    $ticket->user->phone_number,
+                    $ticket->event->name ?? 'N/A', // Assuming event relationship
+                    $ticket->ticket_type,
+                    $ticket->quantity,
+                    $ticket->amount_paid,
+                    $ticket->payment_date,
+                    $ticket->payment_method
+                ]);
+            }
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
+    
+    public function downloadRegisteredTickets()
+    {
+        $tickets = Tickets::with('user:id,full_name,email,phone_number') // Eager load user data
+            ->get();
+
+        $headers = [
+            "Content-type" => "text/csv",
+            "Content-Disposition" => "attachment; filename=registered_tickets_" . date('Y-m-d') . ".csv",
+            "Pragma" => "no-cache",
+            "Cache-Control" => "must-revalidate, post-check=0, pre-check=0",
+            "Expires" => "0"
+        ];
+
+        $callback = function () use ($tickets) {
+            $file = fopen('php://output', 'w');
+
+            // Add CSV headers
+            fputcsv($file, [
+                'Ticket ID',
+                'User Name',
+                'User Email',
+                'User Phone',
+                'Event',
+                'Ticket Type',
+                'Quantity',
+                'Amount Paid',
+                'Payment Date',
+                'Payment Method'
+            ]);
+
+            $event['name'] = "CelebrateRecovery@25";
+            // Add data rows
+            foreach ($tickets as $ticket) {
+                fputcsv($file, [
+                    $ticket->id,
+                    $ticket->user->full_name,
+                    $ticket->user->email,
+                    $ticket->user->phone_number,
+                    $ticket->event->name ?? 'N/A', // Assuming event relationship
+                    $ticket->ticket_type,
+                    $ticket->quantity,
+                    $ticket->amount_paid,
+                    $ticket->payment_date,
+                    $ticket->payment_method
+                ]);
+            }
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
+
     public function sponsoring()
     {
         //

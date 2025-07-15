@@ -30,6 +30,8 @@ class AdminController extends Controller
 
         return view('index', compact('Schedule', 'wed', 'thur', 'fri'));
     }
+    
+
     public function indexadmin() {
 
         // Get total registered users
@@ -50,7 +52,6 @@ class AdminController extends Controller
         $pendingAmount = Tickets::where('payment_status', 'pending')->sum('price');
         $sponsoringAmount = Tickets::where('ticket_type', 'sponsored')->sum('price');
         
-        // dd($totalUsers, $paidTickets, $sponsors, $pendingTickets);
 
         return view('admin.index', compact('totalUsers', 'paidTickets', 'sponsors', 'pendingTickets',
             'totalAmount', 'paidAmount', 'pendingAmount', 'sponsoringAmount'));

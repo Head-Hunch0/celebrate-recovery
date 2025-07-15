@@ -19,6 +19,8 @@ Route::get('/checkout', [TicketsController::class, 'checkout'])->name('checkout'
 Route::post('/registeruser', [UserController::class, 'register'])->name('register.user');
 Route::post('/registersponsor', [UserController::class, 'registersponsor'])->name('register.sponsor');
 Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::get('/tickets/confirmed/download', [TicketsController::class, 'downloadConfirmedTickets'])->name('tickets.download.confirmed');
+Route::get('/tickets/registered/download', [TicketsController::class, 'downloadRegisteredTickets'])->name('tickets.download.registered');
 Route::post('/signin', [UserController::class, 'signin'])->name('signin');
 Route::get('/email', [UserController::class, 'email'])->name('email');
 Route::get('/confirm', [TicketsController::class, 'confirm'])->name('confirm');
@@ -38,7 +40,7 @@ Route::get('/passconfirm', [UserController::class, 'passconfirm'])->name('passco
     // Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::get('/tickets', [TicketsController::class, 'ticketsscan'])->name('admin.tickets');
     Route::post('/tickets/verify', [TicketsController::class, 'verify']);
-    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/', [AdminController::class, 'indexadmin'])->name('admin.index');
     Route::get('/registered-tickets', [TicketsController::class, 'registered'])->name('admin.registered-tickets');
     Route::get('/confirmed-tickets', [TicketsController::class, 'confirmed'])->name('admin.confirmed-tickets');
     Route::get('/sponsoring-tickets', [TicketsController::class, 'sponsoring'])->name('admin.sponsoring-tickets');
