@@ -48,19 +48,52 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Registration No.
+                    Registration No. (UUID)
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Names
+                    Full Name
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Number
+                    Email
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Time
+                    Gender
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Action
+                    Phone Number
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Country
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    County
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    On WhatsApp
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    WhatsApp Number
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Age
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Church
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    In CR Group
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    CR Group Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Interested in Starting CR Group
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Willing to Sponsor
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Actions
                 </th>
             </tr>
         </thead>
@@ -76,12 +109,43 @@
                     {{$ticket['full_name']}}
                 </td>
                 <td class="px-6 py-4">
+                    {{$ticket['email']}}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['gender']}}
+                </td>
+                <td class="px-6 py-4">
                     {{$ticket['phone_number']}}
                 </td>
-
                 <td class="px-6 py-4">
-                    {{-- {{$ticket['created_at']}} --}}
-                    {{ \Carbon\Carbon::parse($ticket['created_at'])->format('Y-m-d H:i:s') }}
+                    {{$ticket['country']}}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['county']}}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['on_whatsapp'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['age'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['church'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['in_cr_group'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['cr_group_name'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['diet'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['interested_in_starting_cr_group'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['willing_to_sponsor'] }}
                 </td>
 
                 <td class="px-6 py-4">
@@ -156,6 +220,21 @@
                     Update Ticket
                 </button>
             </form>
+
+            {{-- <form method="POST" action="" id="deleteForm" class="p-4 md:p-5">
+                        @csrf
+                            <input type="hidden" id="ticketId" name="ticket_id">
+
+                        @method('DELETE')
+                        <button type="submit" 
+                                class="text-white inline-flex items-center bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+                                onclick="return confirm('Are you sure you want to delete this ticket?')">
+                            <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                            </svg>
+                            Delete Ticket
+                        </button>
+            </form> --}}
         </div>
     </div>
 </div>

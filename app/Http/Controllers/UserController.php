@@ -27,6 +27,20 @@ class UserController extends Controller
     public function register(Request $request)
     {
 
+        // Honeypot validation - if this field is filled, it's a bot
+        if (!empty($request->input('website'))) {
+            Log::warning('Bot detected via honeypot');
+            return back()->with('error', 'Invalid submission');
+        }
+
+        // Time trap (submitted too fast = likely bot)
+        $submitTime = now()->timestamp - (int)$request->form_load_time;
+        if ($submitTime < 3) { // Less than 3 seconds
+            Log::warning('Bot detected: form submitted too fast');
+            return back()->with('error', 'Please complete the form more slowly');
+        }
+
+
         try {
             $validated = $request->validate([
                 'name' => 'string|max:255',

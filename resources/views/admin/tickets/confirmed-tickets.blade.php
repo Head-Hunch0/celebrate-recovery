@@ -37,23 +37,49 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Ticket No.
+                    Registration No. (UUID)
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Names
+                    Full Name
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Number
+                    Email
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Payment Method
-                </th>
-
-                <th scope="col" class="px-6 py-3">
-                    Amount
+                    Gender
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Time
+                    Phone Number
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Country
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    County
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    On WhatsApp
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    WhatsApp Number
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Age
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Church
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    In CR Group
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    CR Group Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Interested in Starting CR Group
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Willing to Sponsor
                 </th>
 
             </tr>
@@ -63,40 +89,50 @@
             
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
 
-                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                    {{$ticket['ticket_number']}}
+               <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                    {{$ticket['uuid']}}
                 </td>
                 <td class="px-6 py-4">
-                    {{$ticket['name']}}
+                    {{$ticket['full_name']}}
                 </td>
                 <td class="px-6 py-4">
-                    {{$ticket['phone']}}
-                </td>
-                <td class="px-6 py-4 flex items-center justify-center">
-                    {{-- <span class=" bg-blue-100 text-center text-blue-800 text-sm font-medium  px-3 py-2 rounded-full dark:bg-blue-900 dark:text-blue-300">{{$ticket['payment_method']}}</span> --}}
-
-                    <span 
-                        class="text-center text-sm font-medium px-3 py-2 rounded-full dark:text-blue-300
-                            @if($ticket['payment_method'] == 'card') 
-                            bg-blue-400 text-gray-900 
-                            @elseif($ticket['payment_method'] == 'mpesa') 
-                            bg-green-300 text-gray-900 
-                            @elseif($ticket['payment_method'] == 'paypal') 
-                            bg-yellow-300 text-gray-900 
-                            @else
-                            bg-gray-100 text-gray-800 dark:bg-gray-700
-                            @endif
-                        "
-                        >
-                        {{ $ticket['payment_method'] }}
-                    </span>
-                    
+                    {{$ticket['email']}}
                 </td>
                 <td class="px-6 py-4">
-                    {{$ticket['currency'] . ' : ' . $ticket['payment_amount']}}
+                    {{$ticket['gender']}}
                 </td>
                 <td class="px-6 py-4">
-                    {{$ticket['payment_date']}}
+                    {{$ticket['phone_number']}}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['country']}}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['county']}}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['on_whatsapp'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['age'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['church'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['in_cr_group'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['cr_group_name'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['diet'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['interested_in_starting_cr_group'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{$ticket['willing_to_sponsor'] }}
                 </td>
 
             </tr>

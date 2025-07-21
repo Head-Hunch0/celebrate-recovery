@@ -5,18 +5,19 @@ use App\Http\Controllers\CommunicationController;
 use App\Http\Controllers\MpesaController;
 use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\UserController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AdminController::class, 'index'])->name('index');
 Route::get('/admin/index', [AdminController::class, 'indexadmin'])->name('index.admin');
 
 Route::get('/ticket/{id}', [TicketsController::class, 'ticket'])->name('ticket');
-Route::get('/register', [TicketsController::class, 'show'])->name('register');
+Route::get('/register', [TicketsController::class, 'show'])->middleware('throttle:3,1')->name('register');
 Route::get('/sponsor', [TicketsController::class, 'sponsor'])->name('sponsor');
 Route::get('/thankyou', [TicketsController::class, 'thankyou'])->name('thankyou');
 Route::post('/sponsorstore', [TicketsController::class, 'sponsorstore'])->name('sponsorships.store');
 Route::get('/checkout', [TicketsController::class, 'checkout'])->name('checkout');
-Route::post('/registeruser', [UserController::class, 'register'])->name('register.user');
+Route::post('/registeruser', [UserController::class, 'register'])->middleware('throttle:3,1')->name('register.user');
 Route::post('/registersponsor', [UserController::class, 'registersponsor'])->name('register.sponsor');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::get('/tickets/confirmed/download', [TicketsController::class, 'downloadConfirmedTickets'])->name('tickets.download.confirmed');
@@ -33,6 +34,7 @@ Route::post('/update-password', [UserController::class, 'updatePassword'])->name
 Route::post('/purchase', [TicketsController::class, 'payment'])->name('payment');
 Route::post('/purchase/sponsor', [TicketsController::class, 'paymentsponsor'])->name('payment.sponsor');
 
+
 Route::middleware('auth')->prefix('/admin')->group(function () {
 Route::get('/passconfirm', [UserController::class, 'passconfirm'])->name('passconfirm');
     Route::post('/passupdate', [UserController::class, 'passupdate'])->name('passupdate');
@@ -45,6 +47,10 @@ Route::get('/passconfirm', [UserController::class, 'passconfirm'])->name('passco
     Route::get('/confirmed-tickets', [TicketsController::class, 'confirmed'])->name('admin.confirmed-tickets');
     Route::get('/sponsoring-tickets', [TicketsController::class, 'sponsoring'])->name('admin.sponsoring-tickets');
     Route::get('/sponsored-tickets', [TicketsController::class, 'sponsored'])->name('admin.sponsored-tickets');
+
+    // routes/web.php
+    Route::delete('/tickets/{ticket}', [TicketsController::class, 'destroy'])
+        ->name('admin.tickets.destroy');
 
     // payment routes 
     Route::post('/register-pay', [AdminController::class, 'registerPay'])->name('admin.register-pay');

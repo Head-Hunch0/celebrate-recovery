@@ -286,4 +286,14 @@ function setModalData(id, fullName, paymentMethod, paymentStatus) {
     document.getElementById("full_name").value = fullName;
     document.getElementById("payment_method").value = paymentMethod;
     document.getElementById("payment_status").value = paymentStatus;
+    let ticketId = (document.getElementById("ticketId").value = id);
+
+    // Set delete form action dynamically
+    document.getElementById("deleteForm").action = `/admin/tickets/${ticketId}`;
+
+    // Set delete form action - use template literals properly
+    const deleteForm = document.getElementById("deleteForm");
+    deleteForm.action = `/admin/tickets/${ticketId}`;
+
+    console.log("Delete URL set to:", deleteForm.action); // Debugging
 }

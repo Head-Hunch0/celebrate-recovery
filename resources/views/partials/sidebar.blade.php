@@ -33,9 +33,9 @@
                    <li>
                        <a href="/admin/sponsoring-tickets" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{Request::is('admin/sponsoring-tickets') ? 'bg-gray-300' : ''}}">Sponsoring</a>
                    </li>
-                   <li>
+                   {{-- <li>
                        <a href="/admin/sponsored-tickets" class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 {{Request::is('admin/sponsored-tickets') ? 'bg-gray-300' : ''}}">Sponsored</a>
-                   </li>
+                   </li> --}}
                </ul>
            </li>
            <li>

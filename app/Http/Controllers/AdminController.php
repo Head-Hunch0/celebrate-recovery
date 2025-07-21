@@ -122,6 +122,7 @@ class AdminController extends Controller
 
     public function speakerAdd(Request $request) {
 
+        Log::info($request->all());
         // Validate the request if necessary
         $validated = $request->validate([
             'theme'    => 'required|string|max:255',

@@ -66,34 +66,60 @@ class TicketsController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+
     public function confirmed()
     {
-        //
-        // Fetch all confirmed tickets from the database
-        $tickets = Tickets::where('payment_status', 'completed')->get();
+        // Fetch all confirmed tickets with their associated user data
+        $tickets = Tickets::where('payment_status', 'completed')
+            ->with('user') // assuming you have a 'user' relationship in your Ticket model
+            ->get();
 
-        // add the name, email, and phone of the user who registered the ticket
-        foreach ($tickets as $key) {
-            $key['name'] = User::where('id', $key->userID)->first()->full_name;
-            $key['email'] = User::where('id', $key->userID)->first()->email;
-            $key['phone'] = User::where('id', $key->userID)->first()->phone_number;
+        // If you want to merge all user attributes into each ticket object
+        foreach ($tickets as $ticket) {
+            if ($ticket->user) { // check if user exists
+                $userAttributes = $ticket->user->toArray();
+                foreach ($userAttributes as $key => $value) {
+                    // Skip the id field to avoid overwriting the ticket's id
+                    if ($key !== 'id') {
+                        $ticket->$key = $value;
+                    }
+                }
+            }
         }
 
-        // Return the view with the tickets data
-
-        // dd($tickets->toArray());
         return view('admin.tickets.confirmed-tickets', compact('tickets'));
     }
+
 
     public function downloadConfirmedTickets()
     {
         $tickets = Tickets::where('payment_status', 'completed')
-            ->with('user:id,full_name,email,phone_number') // Eager load user data
+            ->with(['user' => function ($query) {
+                $query->select([
+                    'id',
+                    'full_name',
+                    'uuid',
+                    'email',
+                    'gender',
+                    'phone_number',
+                    'country',
+                    'county',
+                    'on_whatsapp',
+                    // 'whatsapp_number',
+                    'age',
+                    'church',
+                    'in_cr_group',
+                    'cr_group_name',
+                    'interested_in_starting_cr_group',
+                    'willing_to_sponsor'
+                ]);
+            }])
             ->get();
 
         $headers = [
             "Content-type" => "text/csv",
-            "Content-Disposition" => "attachment; filename=confirmed_tickets_" . date('Y-m-d') . ".csv",
+            "Content-Disposition" => "attachment; filename=cr25_confirmed_tickets_" . date('Y-m-d') . ".csv",
             "Pragma" => "no-cache",
             "Cache-Control" => "must-revalidate, post-check=0, pre-check=0",
             "Expires" => "0"
@@ -105,10 +131,21 @@ class TicketsController extends Controller
             // Add CSV headers
             fputcsv($file, [
                 'Ticket ID',
-                'User Name',
-                'User Email',
-                'User Phone',
-                'Event',
+                'Full Name',
+                'UUID',
+                'Email',
+                'Gender',
+                'Phone Number',
+                'Country',
+                'County',
+                'On WhatsApp?',
+                'WhatsApp Number',
+                'Age',
+                'Church',
+                'In CR Group?',
+                'CR Group Name',
+                'Interested in Starting CR Group?',
+                'Willing to Sponsor?',
                 'Ticket Type',
                 'Quantity',
                 'Amount Paid',
@@ -116,20 +153,30 @@ class TicketsController extends Controller
                 'Payment Method'
             ]);
 
-            $event['name'] = "CelebrateRecovery@25";
             // Add data rows
             foreach ($tickets as $ticket) {
                 fputcsv($file, [
                     $ticket->id,
-                    $ticket->user->full_name,
-                    $ticket->user->email,
-                    $ticket->user->phone_number,
-                    $ticket->event->name ?? 'N/A', // Assuming event relationship
-                    $ticket->ticket_type,
-                    $ticket->quantity,
-                    $ticket->amount_paid,
-                    $ticket->payment_date,
-                    $ticket->payment_method
+                    $ticket->user->full_name ?? 'N/A',
+                    $ticket->user->uuid ?? 'N/A',
+                    $ticket->user->email ?? 'N/A',
+                    $ticket->user->gender ?? 'N/A',
+                    $ticket->user->phone_number ?? 'N/A',
+                    $ticket->user->country ?? 'N/A',
+                    $ticket->user->county ?? 'N/A',
+                    $ticket->user->on_whatsapp ? 'Yes' : 'No',
+                    $ticket->user->whatsapp_number ?? 'N/A',
+                    $ticket->user->age ?? 'N/A',
+                    $ticket->user->church ?? 'N/A',
+                    $ticket->user->in_cr_group ? 'Yes' : 'No',
+                    $ticket->user->cr_group_name ?? 'N/A',
+                    $ticket->user->interested_in_starting_cr_group ? 'Yes' : 'No',
+                    $ticket->user->willing_to_sponsor ? 'Yes' : 'No',
+                    $ticket->ticket_type ?? 'N/A',
+                    $ticket->quantity ?? '0',
+                    $ticket->amount_paid ?? '0',
+                    $ticket->payment_date ?? 'N/A',
+                    $ticket->payment_method ?? 'N/A'
                 ]);
             }
 
@@ -141,9 +188,11 @@ class TicketsController extends Controller
     
     public function downloadRegisteredTickets()
     {
-        $tickets = Tickets::with('user:id,full_name,email,phone_number') // Eager load user data
-            ->get();
 
+        Log::alert('Download registered tickets request received');
+        $tickets = User::get();
+
+        Log::info('Registered tickets data:', $tickets->toArray());
         $headers = [
             "Content-type" => "text/csv",
             "Content-Disposition" => "attachment; filename=registered_tickets_" . date('Y-m-d') . ".csv",
@@ -157,11 +206,22 @@ class TicketsController extends Controller
 
             // Add CSV headers
             fputcsv($file, [
-                'Ticket ID',
-                'User Name',
-                'User Email',
-                'User Phone',
-                'Event',
+                'Registration ID',
+                'Full Name',
+                'UUID',
+                'Email',
+                'Gender',
+                'Phone Number',
+                'Country',
+                'County',
+                'On WhatsApp?',
+                'WhatsApp Number',
+                'Age',
+                'Church',
+                'In CR Group?',
+                'CR Group Name',
+                'Interested in Starting CR Group?',
+                'Willing to Sponsor?',
                 'Ticket Type',
                 'Quantity',
                 'Amount Paid',
@@ -174,15 +234,26 @@ class TicketsController extends Controller
             foreach ($tickets as $ticket) {
                 fputcsv($file, [
                     $ticket->id,
-                    $ticket->user->full_name,
-                    $ticket->user->email,
-                    $ticket->user->phone_number,
-                    $ticket->event->name ?? 'N/A', // Assuming event relationship
-                    $ticket->ticket_type,
-                    $ticket->quantity,
-                    $ticket->amount_paid,
-                    $ticket->payment_date,
-                    $ticket->payment_method
+                    $ticket->full_name ?? 'N/A',
+                    $ticket->uuid ?? 'N/A',
+                    $ticket->email ?? 'N/A',
+                    $ticket->gender ?? 'N/A',
+                    $ticket->phone_number ?? 'N/A',
+                    $ticket->country ?? 'N/A',
+                    $ticket->county ?? 'N/A',
+                    $ticket->on_whatsapp ? 'Yes' : 'No',
+                    $ticket->whatsapp_number ?? 'N/A',
+                    $ticket->age ?? 'N/A',
+                    $ticket->church ?? 'N/A',
+                    $ticket->in_cr_group ? 'Yes' : 'No',
+                    $ticket->cr_group_name ?? 'N/A',
+                    $ticket->interested_in_starting_cr_group ? 'Yes' : 'No',
+                    $ticket->willing_to_sponsor ? 'Yes' : 'No',
+                    $ticket->ticket_type ?? 'N/A',
+                    $ticket->quantity ?? '0',
+                    $ticket->amount_paid ?? '0',
+                    $ticket->payment_date ?? 'N/A',
+                    $ticket->payment_method ?? 'N/A'
                 ]);
             }
 
@@ -470,8 +541,23 @@ class TicketsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tickets $tickets)
+    public function destroy(Request $request, $tickets)
     {
-        //
+
+        $tickets = User::findOrFail($tickets);
+        // Check if the ticket exists
+         $ticket = Tickets::where('userID', $tickets)->firstOrFail();
+
+         Log::info('Deleting ticket:', $ticket->toArray());
+
+         dd('Deleting ticket:', $ticket->toArray());
+
+        Log::info('Deleting ticket:', ['ticket_id' => $tickets->id, 'ticket_number' => $tickets->ticket_number]);
+        // $tickets->delete();
+        return redirect()->back()->with('success', 'Ticket deleted successfully');
+           //
     }
+
+    // TicketController.php
+
 }

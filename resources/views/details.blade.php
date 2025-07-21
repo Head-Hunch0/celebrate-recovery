@@ -56,8 +56,9 @@
                             <p class="text-gray-600 mb-8">Please fill out all required fields to complete your registration for the Celebrate Recovery event <br>
                             Space is limited and registrations will close once capacity is reached.</p>
 
-                            <form id="registrationForm" enctype="multipart/form-data" action="{{ route('register.user') }}" method="POST">
+                            <form id="registrationForm" enctype="multipart/form-data" action="{{ secure_url(route('register.user')) }}" method="POST">
                                 @csrf
+
                                 <h4 class="text-orange-600 italic text-center mb-8 text-2xl font-bold">Register for the Conference</h4>
                                 
                                 <!-- Personal Information -->
@@ -190,10 +191,26 @@
                                         
                                     </div>
                                 </div>
-                            
+
+                                <div style="position:absolute;left:-9999px" aria-hidden="true">
+                                    <label for="website_url">Website (optional)</label>
+                                    <input type="url" 
+                                        name="website" 
+                                        id="website_url"
+                                        tabindex="-1"
+                                        autocomplete="off"
+                                        placeholder="https://">
+                                </div>
+
+                                <input type="hidden" name="form_load_time" value="{{ now()->timestamp }}">                            
+
                                 <div class="flex justify-end pt-6 border-t border-gray-200">
-                                    <button type="submit" name="action" value="submit" class="px-8 py-3 bg-orange-600 text-white rounded-lg font-bold hover:bg-orange-700 transition flex items-center">
+                                    <button 
+                                    
+                                    id="submitBtn" type="submit"  
+                                    value="submit" class="px-8 py-3 bg-orange-600 text-white rounded-lg font-bold hover:bg-orange-700 transition flex items-center">
                                         Submit Registration
+                                    
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                                         </svg>
@@ -203,6 +220,8 @@
                                 <div class="flex items-center text-gray-600 my-5 text-xs">
                                     If you need financial assistance to purchase your ticket, please email CRConference2025@ridgewaysbaptistchurch.org , text or call 0740285959.
                                 </div>
+
+
                             </form>
                             
                             
@@ -320,9 +339,12 @@
             </div>
         </div>
     </footer>
-
+<!-- Load reCAPTCHA script -->
     <script>
-       
+//     function onSubmit(token) {
+//      document.getElementById("registrationForm").submit();
+//    }
+
     // Show/hide CR group field based on selection
     document.getElementById('cr').addEventListener('change', function() {
         const crGroupSection = document.getElementById('crgroup-section');
