@@ -220,13 +220,15 @@ class TicketsController extends Controller
                 'Church',
                 'In CR Group?',
                 'CR Group Name',
+                'Diet',
                 'Interested in Starting CR Group?',
                 'Willing to Sponsor?',
                 'Ticket Type',
                 'Quantity',
                 'Amount Paid',
                 'Payment Date',
-                'Payment Method'
+                'Payment Method',
+                // 'created_at',
             ]);
 
             $event['name'] = "CelebrateRecovery@25";
@@ -247,13 +249,15 @@ class TicketsController extends Controller
                     $ticket->church ?? 'N/A',
                     $ticket->in_cr_group ? 'Yes' : 'No',
                     $ticket->cr_group_name ?? 'N/A',
+                    $ticket->diet ?? 'N/A',
                     $ticket->interested_in_starting_cr_group ? 'Yes' : 'No',
                     $ticket->willing_to_sponsor ? 'Yes' : 'No',
                     $ticket->ticket_type ?? 'N/A',
                     $ticket->quantity ?? '0',
                     $ticket->amount_paid ?? '0',
                     $ticket->payment_date ?? 'N/A',
-                    $ticket->payment_method ?? 'N/A'
+                    $ticket->payment_method ?? 'N/A',
+                    // $ticket->created_at ?? 'N/A'
                 ]);
             }
 
