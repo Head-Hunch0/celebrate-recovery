@@ -91,7 +91,7 @@
 
                 <div class="mt-6 max-w-md mx-auto text-white">
                     <p class="inline-block bg-white text-orange-600 max-w-sm font-bold py-4 px-10 rounded-lg text-sm hover:bg-gray-100 transition duration-200 shadow-lg">
-                        Already registered ? Please review your registration email and click the "Complete Your Payment Now" link to make your .
+                        Already registered ? Please review your registration email and click the "Complete Your Payment Now" link to make your payments.
                     </p>
                     <p></p>
                 </div>
