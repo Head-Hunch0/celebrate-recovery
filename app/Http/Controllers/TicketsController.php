@@ -150,7 +150,8 @@ class TicketsController extends Controller
                 'Quantity',
                 'Amount Paid',
                 'Payment Date',
-                'Payment Method'
+                'Payment Method',
+                'created_at',
             ]);
 
             // Add data rows
@@ -176,7 +177,8 @@ class TicketsController extends Controller
                     $ticket->quantity ?? '0',
                     $ticket->amount_paid ?? '0',
                     $ticket->payment_date ?? 'N/A',
-                    $ticket->payment_method ?? 'N/A'
+                    $ticket->payment_method ?? 'N/A',
+                    $ticket->created_at ? $ticket->created_at->format('Y-m-d H:i:s') : 'N/A'
                 ]);
             }
 
@@ -228,7 +230,7 @@ class TicketsController extends Controller
                 'Amount Paid',
                 'Payment Date',
                 'Payment Method',
-                // 'created_at',
+                'created_at',
             ]);
 
             $event['name'] = "CelebrateRecovery@25";
@@ -257,7 +259,7 @@ class TicketsController extends Controller
                     $ticket->amount_paid ?? '0',
                     $ticket->payment_date ?? 'N/A',
                     $ticket->payment_method ?? 'N/A',
-                    // $ticket->created_at ?? 'N/A'
+                    $ticket->created_at ? $ticket->created_at->format('Y-m-d H:i:s') : 'N/A'
                 ]);
             }
 

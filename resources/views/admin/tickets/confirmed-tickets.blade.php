@@ -81,6 +81,9 @@
                 <th scope="col" class="px-6 py-3">
                     Willing to Sponsor
                 </th>
+                <th scope="col" class="px-6 py-3">
+                    Registered On
+                </th>
 
             </tr>
         </thead>
@@ -133,6 +136,9 @@
                 </td>
                 <td class="px-6 py-4">
                     {{$ticket['willing_to_sponsor'] }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ \Carbon\Carbon::parse($ticket['created_at'])->format('Y-m-d') }}
                 </td>
 
             </tr>
