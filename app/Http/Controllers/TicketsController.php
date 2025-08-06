@@ -255,7 +255,7 @@ class TicketsController extends Controller
                     $ticket->interested_in_starting_cr_group ? 'Yes' : 'No',
                     $ticket->willing_to_sponsor ? 'Yes' : 'No',
                     $ticket->ticket_type ?? 'N/A',
-                    $ticket->quantity ?? '0',
+                    $ticket->willing_to_sponsor ?? '0',
                     $ticket->amount_paid ?? '0',
                     $ticket->payment_date ?? 'N/A',
                     $ticket->payment_method ?? 'N/A',
